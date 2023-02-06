@@ -1,5 +1,5 @@
 :root {
-  --font-family-main: Consolas, 'Times New Roman', Serif;
+  --font-family-main: Consolas, "Times New Roman", Serif;
 
   --font-size-m: 16px;
   --font-line-m: 24px;
@@ -11,4 +11,16 @@
 
   //Размеры
   --navbar-height: 50px;
+
+  --sidebar-width-collapsed: 80px;
+  --sidebar-width: 300px;
+}
+
+.content-page {
+  display: flex;
+}
+
+.page-wrapper {
+  flex-grow: 1;
+  padding: 20px;
 }
