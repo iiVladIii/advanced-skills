@@ -14,6 +14,12 @@
     --navbar-height: 50px;
     --sidebar-width-collapsed: 80px;
     --sidebar-width: 300px;
+
+    // z - индексы
+    --modal-z-index: 10;
+
+    // цвета
+    --overlay-color: rgba(0 0 0 / 60%);
 }
 
 .content-page {

@@ -1,11 +1,14 @@
-@import "src/app/styles/reset";
-@import "src/app/styles/variables/global";
-@import "src/app/styles/themes/normal";
-@import "src/app/styles/themes/dark";
+@import "reset";
+@import "./variables/global";
+@import "./themes/normal";
+@import "./themes/dark";
+
+body {
+    font: var(--font-m);
+}
 
 .app {
-    font: var(--font-m);
+    min-height: 100vh;
     background: var(--bg-color);
     color: var(--primary-color);
-    min-height: 100vh;
 }
