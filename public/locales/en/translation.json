@@ -1,6 +1,6 @@
 {
-    "Язык": "Russian",
-    "Короткий язык": "Ru",
+    "Язык": "English",
+    "Короткий язык": "En",
     "Станица не найдена": "Page not found",
     "Произошла непредвиденная ошибка": "Unexpected error",
     "Обновить страницу": "Reload page",
@@ -9,5 +9,7 @@
     "Главная": "Main",
     "Войти": "Sign in",
     "Увеличить": "Increment",
-    "Уменьшить": "Decrement"
+    "Уменьшить": "Decrement",
+    "Введите username": "Enter username",
+    "Введите пароль": "Enter password"
 }
