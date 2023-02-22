@@ -126,4 +126,11 @@ ClearInverted.args = {
     children: 'Text',
     theme: ButtonTheme.CLEAR_INVERTED,
 };
+
+export const disabled = Template.bind({});
+disabled.args = {
+    children: 'disabled btn',
+    theme: ButtonTheme.OUTLINE,
+    disabled: true,
+};
 // ClearInverted.decorators = [ThemeDecorator(Theme.DARK)];
