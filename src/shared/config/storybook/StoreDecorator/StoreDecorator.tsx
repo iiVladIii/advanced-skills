@@ -2,9 +2,11 @@ import { Story } from '@storybook/react';
 import { StateSchema, StoreProvider } from 'app/providers/StoreProvider';
 import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
 import { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { editableProfileCardReducer } from 'features/EditableProfileCard';
 
 const defaultAsyncReducers:ReducersList = {
     loginForm: loginReducer,
+    profile: editableProfileCardReducer,
 };
 
 export const StoreDecorator = (

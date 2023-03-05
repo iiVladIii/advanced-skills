@@ -17,5 +17,13 @@
     "Форма авторизации": "Auth form",
     "Вы ввели неверный логин или пароль": "You entered the wrong username or password",
     "Укажите валюту": "Choose currency",
-    "Укажите страну": "Choose country"
+    "Укажите страну": "Choose country",
+    "Серверная ошибка при сохранении": "Server error when saving",
+    "Некорректный регион": "Incorrect region",
+    "Некорректный возраст": "Incorrect age",
+    "Некорректная валюта": "Incorrect currency",
+    "Данные не указаны": "Data not specified",
+    "Имя и фамилия обязательны": "First and last name required",
+    "Некорректный город": "Incorrect city",
+    "Некорректорное имя пользователя": "Invalid user name"
 }

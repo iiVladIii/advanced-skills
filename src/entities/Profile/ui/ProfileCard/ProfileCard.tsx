@@ -8,6 +8,7 @@ import { Currency } from 'entities/Currency/model/types/currency';
 import { CurrencySelect } from 'entities/Currency';
 import { Country } from 'entities/Country/model/types/country';
 import { CountrySelect } from 'entities/Country';
+import { memo } from 'react';
 import { Profile } from '../../model/type/profile';
 import cls from './ProfileCard.module.scss';
 
@@ -74,13 +75,13 @@ export const ProfileCard = (props: ProfileCardProps) => {
         <div className={classNames(cls.ProfileCard, mods, [className])}>
             <div className={cls.data}>
                 {data?.avatar
-                && (
-                    <div className={cls.avatarWrapper}>
-                        <Avatar
-                            src={data.avatar}
-                        />
-                    </div>
-                )}
+                        && (
+                            <div className={cls.avatarWrapper}>
+                                <Avatar
+                                    src={data.avatar}
+                                />
+                            </div>
+                        )}
                 <Input
                     value={data?.first}
                     placeholder={t('Ваше имя')}
