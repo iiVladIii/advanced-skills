@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { memo, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { routeConfig } from 'shared/config/routerConfig/routerConfig';
 import { PageLoader } from 'widgets/PageLoader/PageLoader';
@@ -21,4 +21,4 @@ const AppRouter = () => (
     </Suspense>
 );
 
-export default AppRouter;
+export default memo(AppRouter);
