@@ -1,6 +1,8 @@
 import { ThunkConfig } from 'app/providers/StoreProvider';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { getProfileForm } from '../../selectors/getProfileForm/getProfileForm';
+import {
+    getEditableProfileCardForm,
+} from 'features/EditableProfileCard';
 import { Profile } from '../../type/profile';
 
 export const updateProfileData = createAsyncThunk<Profile, void, ThunkConfig<string>>(
@@ -12,7 +14,7 @@ export const updateProfileData = createAsyncThunk<Profile, void, ThunkConfig<str
             getState,
         } = thunkAPI;
 
-        const formData = getProfileForm(getState());
+        const formData = getEditableProfileCardForm(getState());
 
         try {
             const response = await extra.api.put<Profile>('/profile', formData);

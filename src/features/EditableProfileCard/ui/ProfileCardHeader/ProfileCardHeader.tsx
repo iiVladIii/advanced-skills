@@ -3,29 +3,33 @@ import { useTranslation } from 'react-i18next';
 import { Text } from 'shared/ui/Text/Text';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
-import { getProfileReadonly, profileActions, updateProfileData } from 'entities/Profile';
-import { useCallback } from 'react';
+import { updateProfileData } from 'entities/Profile';
+import { memo, useCallback } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import cls from './ProfilePageHeader.module.scss';
+import cls from './ProfileCardHeader.module.scss';
+import {
+    getEditableProfileCardReadonly,
+} from '../../model/selectors/getEditableProfileCardReadonly/getEditableProfileCardReadonly';
+import { editableProfileCardActions } from '../../model/slice/editableProfileCardSlice';
 
-interface ProfilePageHeaderProps {
+interface ProfileCardHeaderProps {
     className?: string
 }
 
-export const ProfileCardHeader = (props: ProfilePageHeaderProps) => {
+export const ProfileCardHeader = memo((props: ProfileCardHeaderProps) => {
     const {
         className,
     } = props;
-    const { t } = useTranslation();
-    const readonly = useSelector(getProfileReadonly);
+    const { t } = useTranslation('profile');
+    const readonly = useSelector(getEditableProfileCardReadonly);
     const dispatch = useAppDispatch();
 
     const onEdit = useCallback(() => {
-        dispatch(profileActions.setReadonly(false));
+        dispatch(editableProfileCardActions.setReadonly(false));
     }, [dispatch]);
 
     const onCancelEdit = useCallback(() => {
-        dispatch(profileActions.cancelEdit());
+        dispatch(editableProfileCardActions.cancelEdit());
     }, [dispatch]);
 
     const onSave = useCallback(() => {
@@ -33,7 +37,7 @@ export const ProfileCardHeader = (props: ProfilePageHeaderProps) => {
     }, [dispatch]);
 
     return (
-        <div className={classNames(cls.ProfilePageHeader, {}, [className])}>
+        <div className={classNames(cls.ProfileCardHeader, {}, [className])}>
             <Text title={t('Профиль')} />
             {readonly
                 ? (
@@ -67,4 +71,4 @@ export const ProfileCardHeader = (props: ProfilePageHeaderProps) => {
 
         </div>
     );
-};
+});

@@ -1,8 +1,8 @@
 import { StateSchema } from 'app/providers/StoreProvider';
-import { getProfileForm } from './getProfileForm';
+import { getEditableProfileCardData } from './getEditableProfileCardData';
 
-describe('get profile form', () => {
-    test('should return profile form is undefined', () => {
+describe('get editable profile data', () => {
+    test('should return profile data is undefined', () => {
         const state: DeepPartial<StateSchema> = {
             profile: {
                 isLoading: true,
@@ -10,7 +10,7 @@ describe('get profile form', () => {
                 error: 'error',
             },
         };
-        expect(getProfileForm(state as StateSchema)).toEqual(undefined);
+        expect(getEditableProfileCardData(state as StateSchema)).toEqual(undefined);
     });
 
     // test('work with empty state', () => {

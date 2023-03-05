@@ -1,13 +1,14 @@
 {
-    "Профиль": "Profile",
-    "Редактировать": "Edit",
-    "Ваше имя": "You're name",
-    "Ваша фамилия": "You're lastname",
-    "Произошла ошибка при загрузке профлия": "An error occurred while loading the profile",
-    "Попробуйте обновить страницу": "Try refreshing the page",
-    "Отменить": "Cancel",
-    "Сохранить": "Save",
-    "Ваш возраст": "You're age",
-    "Город": "City",
-    "Имя пользователя": "Username"
+  "Ваш возраст": "You're age",
+  "Ваша фамилия": "You're lastname",
+  "Ваше имя": "You're name",
+  "Город": "City",
+  "Имя пользователя": "Username",
+  "Отменить": "Cancel",
+  "Попробуйте обновить страницу": "Try refreshing the page",
+  "Произошла ошибка при загрузке профлия": "An error occurred while loading the profile",
+  "Профиль": "Profile",
+  "Редактировать": "Edit",
+  "Сохранить": "Save",
+  "Ссылка на аватар": ""
 }
