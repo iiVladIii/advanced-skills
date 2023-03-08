@@ -2,7 +2,7 @@ import HTMLWebpackPlugin from 'html-webpack-plugin';
 import webpack from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
-import { json } from 'stream/consumers';
+import ReactRefreshPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import { BuildOptions } from './types/config';
 
 export function buildPlugins({
@@ -24,7 +24,7 @@ export function buildPlugins({
                 __PROJECT__: JSON.stringify(project),
             },
         ),
-        // new ReactRefreshPlugin(),
+
     ];
 
     // plugins.push(new BundleAnalyzerPlugin({
@@ -32,10 +32,11 @@ export function buildPlugins({
     // }));
 
     if (isDev) {
-        plugins.push(new webpack.HotModuleReplacementPlugin());
+        // plugins.push(new webpack.HotModuleReplacementPlugin());
         plugins.push(new BundleAnalyzerPlugin({
             openAnalyzer: false,
         }));
+        plugins.push(new ReactRefreshPlugin());
     }
     return plugins;
 }
