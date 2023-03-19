@@ -1,9 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { EditableProfileCard } from 'features/EditableProfileCard';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { fetchProfileData } from 'entities/Profile';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useParams } from 'react-router-dom';
+import { Page } from 'shared/ui/Page/Page';
 import cls from './ProfilePage.module.scss';
 
 interface ProfilePageProps {
@@ -16,9 +13,9 @@ const ProfilePage = (props: ProfilePageProps) => {
     } = props;
 
     return (
-        <div className={classNames(cls.ProfilePage, {}, [className])}>
+        <Page className={classNames(cls.ProfilePage, {}, [className])}>
             <EditableProfileCard />
-        </div>
+        </Page>
     );
 };
 

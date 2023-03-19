@@ -12,6 +12,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AddCommentForm } from 'features/AddNewComment';
 import { Button } from 'shared/ui/Button/Button';
 import { RouterPath } from 'shared/config/routerConfig/routerConfig';
+import { Page } from 'shared/ui/Page/Page';
 import {
     fetchCommentsByArticleId,
 } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
@@ -56,14 +57,14 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
     if (!id) {
         return (
-            <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+            <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
                 {t('Сатья не найдена')}
-            </div>
+            </Page>
         );
     }
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+            <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
                 <Button onClick={onBackToList}>{t('Назад к списку')}</Button>
                 <ArticleDetails id={id} />
                 <Text
@@ -79,7 +80,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                     isLoading={isLoading}
                     comments={comments}
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 };

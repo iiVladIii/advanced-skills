@@ -26,6 +26,8 @@ export const articlesPageSlice = createSlice({
         view: ArticleView.SMALL,
         ids: [],
         entities: {},
+        page: 1,
+        hasMore: true,
     }),
     reducers: {
         setView: (state, action: PayloadAction<ArticleView>) => {
@@ -33,8 +35,14 @@ export const articlesPageSlice = createSlice({
             localStorage.setItem(ARTICLES_VIEW_LOCALSTORAGE_KEY, action.payload);
         },
 
+        setPage: (state, action: PayloadAction<number>) => {
+            state.page = action.payload;
+        },
+
         initState: (state) => {
-            state.view = localStorage.getItem(ARTICLES_VIEW_LOCALSTORAGE_KEY) as ArticleView;
+            const view = localStorage.getItem(ARTICLES_VIEW_LOCALSTORAGE_KEY) as ArticleView;
+            state.view = view;
+            state.limit = view === ArticleView.BIG ? 4 : 9;
         },
 
         // update: (state, action: PayloadAction<ArticlesPage>) => {
@@ -52,7 +60,8 @@ export const articlesPageSlice = createSlice({
             })
             .addCase(fetchArticlesList.fulfilled, (state, action: PayloadAction<Article[]>) => {
                 state.isLoading = false;
-                articlesAdapter.setAll(state, action.payload);
+                articlesAdapter.addMany(state, action.payload);
+                state.hasMore = action.payload.length > 0;
             })
             .addCase(fetchArticlesList.rejected, (state, action) => {
                 state.isLoading = false;

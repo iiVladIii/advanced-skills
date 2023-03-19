@@ -54,9 +54,8 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                         <Text text={article.user.username} className={cls.username} />
                         <Text text={article.createdAt} className={cls.date} />
                     </div>
-                    <Text text={article.title} className={cls.title} />
+                    <Text title={article.title} className={cls.title} />
                     {types}
-                    {views}
                     <img src={article.img} alt={article.title} className={cls.img} />
                     {textBlocks && (
                         <ArticleTextBlockComponent block={textBlocks} className={cls.textBlock} />
