@@ -39,7 +39,10 @@ export const Normal = Template.bind({});
 Normal.args = {};
 Normal.decorators = [StoreDecorator({
     articleDetails: {
-        error: '',
         data: article,
+        error: '',
+    },
+    addCommentForm: {
+        text: '',
     },
 })];

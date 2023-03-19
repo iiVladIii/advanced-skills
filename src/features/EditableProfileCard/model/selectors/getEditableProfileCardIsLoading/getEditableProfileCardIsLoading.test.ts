@@ -4,7 +4,7 @@ import { Country } from 'entities/Country';
 import { getEditableProfileCardIsLoading } from './getEditableProfileCardIsLoading';
 
 describe('getEditableProfileCardIsLoading.test', () => {
-    test('should return isLoading', () => {
+    test('should return true', () => {
         const data = {
             first: 'name',
             city: 'City',

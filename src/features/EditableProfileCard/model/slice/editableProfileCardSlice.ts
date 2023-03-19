@@ -10,7 +10,7 @@ const initialState:ProfileSchema = {
 };
 
 export const editableProfileCardSlice = createSlice({
-    name: 'editableProfileCard',
+    name: 'profile',
     initialState,
     reducers: {
         setReadonly: (state, action:PayloadAction<boolean>) => {

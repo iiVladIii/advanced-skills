@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useCallback, useEffect } from 'react';
+import { useCallback } from 'react';
 import { fetchProfileData, ProfileCard, ValidateProfileError } from 'entities/Profile';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
@@ -8,10 +8,12 @@ import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ProfileCardHeader } from 'features/EditableProfileCard/ui/ProfileCardHeader/ProfileCardHeader';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useParams } from 'react-router-dom';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import {
-    DynamicModuleLoader,
-    ReducersList,
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+    getEditableProfileCardError,
+} from '../model/selectors/getEditableProfileCardError/getEditableProfileCardError';
 import { getValidateProfileErrors } from '../model/selectors/getValidateProfileErrors/getValidateProfileErrors';
 import cls from './EditableProfileCard.module.scss';
 import { editableProfileCardActions, editableProfileCardReducer } from '../model/slice/editableProfileCardSlice';
@@ -19,8 +21,6 @@ import {
     getEditableProfileCardIsLoading,
 } from '../model/selectors/getEditableProfileCardIsLoading/getEditableProfileCardIsLoading';
 import { getEditableProfileCardForm } from '../model/selectors/getEditableProfileCardForm/getEditableProfileCardForm';
-import { getEditableProfileCardError }
-    from '../model/selectors/getEditableProfileCardError/getEditableProfileCardError';
 import {
     getEditableProfileCardReadonly,
 } from '../model/selectors/getEditableProfileCardReadonly/getEditableProfileCardReadonly';
@@ -37,8 +37,17 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
     const {
         className,
     } = props;
-    const { t } = useTranslation('profile');
     const dispatch = useAppDispatch();
+
+    const { id } = useParams<{id:string}>();
+
+    useInitialEffect(() => {
+        if (id) {
+            dispatch(fetchProfileData(id));
+        }
+    });
+
+    const { t } = useTranslation('profile');
     const isLoading = useSelector(getEditableProfileCardIsLoading);
     const formData = useSelector(getEditableProfileCardForm);
     const error = useSelector(getEditableProfileCardError);
@@ -86,12 +95,6 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
 
     const onChangeCountry = useCallback((country: Country) => {
         dispatch(editableProfileCardActions.updateProfile({ country }));
-    }, [dispatch]);
-
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchProfileData());
-        }
     }, [dispatch]);
 
     return (
