@@ -17,7 +17,6 @@ const article: Article = {
     id: '1',
     user: {
         id: '1',
-        avatar: 'avatar',
         username: 'username',
     },
     title: 'JavaScript news',
