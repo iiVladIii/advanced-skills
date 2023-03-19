@@ -8,6 +8,11 @@ import { Article, ArticleBlockType, ArticleType } from '../types/article';
 
 const article: Article = {
     id: '1',
+    user: {
+        id: '1',
+        username: 'username',
+        avatar: 'avatar',
+    },
     title: 'JavaScript news',
     subtitle: 'Что нового в js pf 2022 год ?',
     img: 'https://i.pinimg.com/originals/68/d9/1a/68d91a4a0c40857674fbd3a22b9f0b03.png',
