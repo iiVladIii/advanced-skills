@@ -12,7 +12,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AddCommentForm } from 'features/AddNewComment';
 import { Button } from 'shared/ui/Button/Button';
 import { RouterPath } from 'shared/config/routerConfig/routerConfig';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page/Page';
 import {
     fetchCommentsByArticleId,
 } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
