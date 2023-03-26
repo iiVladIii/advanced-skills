@@ -27,7 +27,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
         article,
         view,
     } = props;
-    const { t } = useTranslation();
+    const { t } = useTranslation('articles');
 
     const navigate = useNavigate();
 
