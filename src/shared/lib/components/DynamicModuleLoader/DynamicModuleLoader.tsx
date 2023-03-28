@@ -8,6 +8,10 @@ export type ReducersList = {
     [name in StateSchemaKey]?: Reducer;
 }
 
+// export type ReducersList = {
+//     [name in StateSchemaKey]?: Reducer<NonNullable<[name]>>;
+// }
+
 type ReducerListEntry = [StateSchemaKey, Reducer]
 
 interface DynamicModuleLoaderProps {
