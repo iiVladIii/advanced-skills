@@ -10,6 +10,8 @@ export default (env: BuildEnv): webpack.Configuration => {
         build: path.resolve(__dirname, 'build'),
         html: path.resolve(__dirname, 'public', 'index.html'),
         src: path.resolve(__dirname, 'src'),
+        locales: path.resolve(__dirname, 'public', 'locales'),
+        buildLocales: path.resolve(__dirname, 'build', 'locales'),
     };
 
     dotenv.config();
@@ -17,7 +19,7 @@ export default (env: BuildEnv): webpack.Configuration => {
     const mode = env.mode || 'development';
     const isDev = mode === 'development';
     const PORT = env.port || Number(process.env.PORT) || 3000;
-    const apiUrl = env.apiUrl || 'http://localhost:8080';
+    const apiUrl = env.apiUrl || process.env.API_URL || 'http://localhost:8080';
 
     const config: webpack.Configuration = buildWebpackConfig({
         mode,
