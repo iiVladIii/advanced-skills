@@ -14,3 +14,12 @@
 .mainLink {
     margin-right: 15px;
 }
+
+.appName {
+    width: calc(var(--sidebar-width) - 20px);
+    padding-left: 15px;
+}
+
+.createLink {
+    // margin-left: auto;
+}
