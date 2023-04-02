@@ -22,6 +22,7 @@ module.exports = {
         '@typescript-eslint',
         'i18next',
         'react-hooks',
+        'vladi-plugin',
     ],
     rules: {
         'react/jsx-indent': [2, 4],
@@ -46,7 +47,10 @@ module.exports = {
             'error',
             {
                 markupOnly: true,
-                ignoreAttribute: ['data-testid', 'to', 'target'],
+                ignoreAttribute: [
+                    'data-testid', 'to', 'target',
+                    'justify', 'align', 'direction', 'gap',
+                ],
             },
         ],
         'max-len': ['error', { ignoreComments: true, code: 120 }],
@@ -57,6 +61,7 @@ module.exports = {
         'no-param-reassign': 'off',
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
+        'vladi-plugin/path-checker': 'error',
     },
     globals: {
         __IS_DEV__: true,

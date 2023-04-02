@@ -6,11 +6,12 @@ import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { ProfileCardHeader } from 'features/EditableProfileCard/ui/ProfileCardHeader/ProfileCardHeader';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useParams } from 'react-router-dom';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { VStack } from 'shared/ui/Stack/VStack/VStack';
+import { ProfileCardHeader } from './ProfileCardHeader/ProfileCardHeader';
 import {
     getEditableProfileCardError,
 } from '../model/selectors/getEditableProfileCardError/getEditableProfileCardError';
@@ -99,7 +100,12 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <div className={classNames(cls.EditableProfileCard, {}, [className])}>
+            <VStack
+                gap="16"
+                // align="center"
+                max
+                className={classNames(cls.EditableProfileCard, {}, [className])}
+            >
                 <ProfileCardHeader />
                 {validateErrors?.length && validateErrors.map((error) => (
                     <Text
@@ -122,7 +128,7 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
                     onChangeCountry={onChangeCountry}
                     readonly={readonly}
                 />
-            </div>
+            </VStack>
         </DynamicModuleLoader>
     );
 };
