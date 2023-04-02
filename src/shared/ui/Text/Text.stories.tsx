@@ -39,7 +39,6 @@ PrimaryDark.args = {
     title: 'title',
     text: 'Description Description Description',
 };
-// eslint-disable-next-line no-undef
 PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const OnlyTitleDark = Template.bind({});
@@ -54,9 +53,23 @@ OnlyTextDark.args = {
 };
 OnlyTextDark.decorators = [ThemeDecorator(Theme.DARK)];
 
+export const SizeS = Template.bind({});
+SizeS.args = {
+    size: TextSize.S,
+    title: 'title',
+    text: 'Description Description Description',
+};
+
 export const SizeL = Template.bind({});
 SizeL.args = {
     size: TextSize.L,
+    title: 'title',
+    text: 'Description Description Description',
+};
+
+export const SizeM = Template.bind({});
+SizeM.args = {
+    size: TextSize.M,
     title: 'title',
     text: 'Description Description Description',
 };
