@@ -49,26 +49,24 @@ export const Dropdown = memo((props: DropdownProps) => {
             <Menu.Items
                 className={classNames(cls.menu, {}, menuClasses)}
             >
-                {items.map((item) => {
-                    const content = ({ active }: {active: boolean}) => {
-                        console.log(12);
-                        return (
-                            <button
-                                type="button"
-                                disabled={item.disabled}
-                                className={classNames(
-                                    cls.item,
-                                    { [cls.active]: active },
-                                )}
-                            >
-                                {item.content}
-                            </button>
-                        );
-                    };
+                {items.map((item, index) => {
+                    const content = ({ active }: {active: boolean}) => (
+                        <button
+                            type="button"
+                            disabled={item.disabled}
+                            className={classNames(
+                                cls.item,
+                                { [cls.active]: active },
+                            )}
+                        >
+                            {item.content}
+                        </button>
+                    );
 
                     if (item.href) {
                         return (
                             <Menu.Item
+                                key={index}
                                 as={AppLink}
                                 className={classNames(
                                     cls.item,
@@ -81,7 +79,7 @@ export const Dropdown = memo((props: DropdownProps) => {
                         );
                     }
                     return (
-                        <Menu.Item as={Fragment} disabled={item.disabled}>
+                        <Menu.Item key={index} as={Fragment} disabled={item.disabled}>
                             {content}
                         </Menu.Item>
                     );

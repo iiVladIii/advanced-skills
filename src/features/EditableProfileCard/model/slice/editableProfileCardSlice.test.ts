@@ -1,7 +1,8 @@
-import { ProfileSchema, updateProfileData, ValidateProfileError } from 'entities/Profile';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
+import { ProfileSchema, ValidateProfileError } from '../types/EditableProfileCardSchema';
 import { editableProfileCardActions, editableProfileCardReducer } from './editableProfileCardSlice';
+import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 
 const data = {
     first: 'name',

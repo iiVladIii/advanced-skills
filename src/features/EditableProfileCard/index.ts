@@ -1,2 +1,2 @@
 export { EditableProfileCard } from './ui/EditableProfileCard';
-export { getEditableProfileCardForm } from './model/selectors/getEditableProfileCardForm/getEditableProfileCardForm';
+export { ProfileSchema } from './model/types/EditableProfileCardSchema';

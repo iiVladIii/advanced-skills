@@ -3,11 +3,11 @@ import { useTranslation } from 'react-i18next';
 import { Text } from 'shared/ui/Text/Text';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
-import { updateProfileData } from 'entities/Profile';
 import { memo, useCallback } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getUserAuthData } from 'entities/User';
 import { HStack } from 'shared/ui/Stack/HStack/HStack';
+import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 import {
     getEditableProfileCardReadonly,
 } from '../../model/selectors/getEditableProfileCardReadonly/getEditableProfileCardReadonly';

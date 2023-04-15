@@ -1,7 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useCallback } from 'react';
-import { fetchProfileData, ProfileCard, ValidateProfileError } from 'entities/Profile';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
 import { useSelector } from 'react-redux';
@@ -11,6 +10,7 @@ import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/Dynamic
 import { useParams } from 'react-router-dom';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { VStack } from 'shared/ui/Stack/VStack/VStack';
+import { ProfileCard } from 'entities/Profile';
 import { ProfileCardHeader } from './ProfileCardHeader/ProfileCardHeader';
 import {
     getEditableProfileCardError,
@@ -25,9 +25,12 @@ import { getEditableProfileCardForm } from '../model/selectors/getEditableProfil
 import {
     getEditableProfileCardReadonly,
 } from '../model/selectors/getEditableProfileCardReadonly/getEditableProfileCardReadonly';
+import { ValidateProfileError } from '../model/types/EditableProfileCardSchema';
+import { fetchProfileData } from '../model/services/fetchProfileData/fetchProfileData';
 
 interface EditableProfileCardProps {
-    className?: string
+    className?: string;
+    id?: string;
 }
 
 const reducers: ReducersList = {
@@ -37,10 +40,9 @@ const reducers: ReducersList = {
 export const EditableProfileCard = (props: EditableProfileCardProps) => {
     const {
         className,
+        id,
     } = props;
     const dispatch = useAppDispatch();
-
-    const { id } = useParams<{id:string}>();
 
     useInitialEffect(() => {
         if (id) {
