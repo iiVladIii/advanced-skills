@@ -12,9 +12,8 @@ import {
     getEditableProfileCardReadonly,
 } from '../../model/selectors/getEditableProfileCardReadonly/getEditableProfileCardReadonly';
 import { editableProfileCardActions } from '../../model/slice/editableProfileCardSlice';
-import {
-    getEditableProfileCardData,
-} from '../../model/selectors/getEditableProfileCardData/getEditableProfileCardData';
+import { getEditableProfileCardData }
+    from '../../model/selectors/getEditableProfileCardData/getEditableProfileCardData';
 
 interface ProfileCardHeaderProps {
     className?: string
@@ -53,6 +52,7 @@ export const ProfileCardHeader = memo((props: ProfileCardHeaderProps) => {
                         <Button
                             theme={ButtonTheme.OUTLINE}
                             onClick={onEdit}
+                            data-testid="ProfileCardHeader.EditButton"
                         >
                             {t('Редактировать')}
                         </Button>
@@ -62,12 +62,14 @@ export const ProfileCardHeader = memo((props: ProfileCardHeaderProps) => {
                             <Button
                                 theme={ButtonTheme.OUTLINE_RED}
                                 onClick={onCancelEdit}
+                                data-testid="ProfileCardHeader.CancelButton"
                             >
                                 {t('Отменить')}
                             </Button>
                             <Button
                                 theme={ButtonTheme.OUTLINE}
                                 onClick={onSave}
+                                data-testid="ProfileCardHeader.SaveButton"
                             >
                                 {t('Сохранить')}
                             </Button>
