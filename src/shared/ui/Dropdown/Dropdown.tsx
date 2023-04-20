@@ -16,7 +16,7 @@ interface DropdownProps {
     className?: string;
     items: DropdownItem[];
     trigger: ReactNode
-     direction?: DropDownDirection;
+    direction?: DropDownDirection;
 }
 
 const mapDirection:Record<DropDownDirection, string> = {
@@ -54,10 +54,8 @@ export const Dropdown = memo((props: DropdownProps) => {
                         <button
                             type="button"
                             disabled={item.disabled}
-                            className={classNames(
-                                cls.item,
-                                { [cls.active]: active },
-                            )}
+                            onClick={item.onClick}
+                            className={classNames(cls.item, { [cls.active]: active })}
                         >
                             {item.content}
                         </button>
@@ -65,16 +63,8 @@ export const Dropdown = memo((props: DropdownProps) => {
 
                     if (item.href) {
                         return (
-                            <Menu.Item
-                                key={index}
-                                as={AppLink}
-                                className={classNames(
-                                    cls.item,
-                                )}
-                                to={item.href}
-                                disabled={item.disabled}
-                            >
-                                {item.content}
+                            <Menu.Item key={index} as={AppLink} to={item.href} disabled={item.disabled}>
+                                {content}
                             </Menu.Item>
                         );
                     }
