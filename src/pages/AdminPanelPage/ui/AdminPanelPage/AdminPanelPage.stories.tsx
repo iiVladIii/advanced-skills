@@ -1,10 +1,12 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import AdminPanelPage from './AdminPanelPage';
 
 export default {
-    title: '___/AdminPanelPage',
+    title: 'pages/AdminPanelPage',
     component: AdminPanelPage,
+    decorators: [StoreDecorator({})],
     argTypes: {
         backgroundColor: { control: 'color' },
     },
