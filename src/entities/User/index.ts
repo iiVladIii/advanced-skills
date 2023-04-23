@@ -11,10 +11,9 @@ export {
     getUserInited,
 } from './model/selectors/getUserInited/getUserInited';
 
-export {
+export type {
     User,
     UserSchema,
-    UserRole,
 } from './model/types/user';
 
 export {
@@ -22,3 +21,4 @@ export {
     isUserAdmin,
     isUserManager,
 } from './model/selectors/roleSelectors';
+export { UserRole } from './model/consts/consts';

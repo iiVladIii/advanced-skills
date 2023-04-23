@@ -7,10 +7,10 @@ import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useParams } from 'react-router-dom';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { VStack } from 'shared/ui/Stack/VStack/VStack';
 import { ProfileCard } from 'entities/Profile';
+import { ValidateProfileError } from '../model/consts/consts';
 import { ProfileCardHeader } from './ProfileCardHeader/ProfileCardHeader';
 import {
     getEditableProfileCardError,
@@ -25,7 +25,6 @@ import { getEditableProfileCardForm } from '../model/selectors/getEditableProfil
 import {
     getEditableProfileCardReadonly,
 } from '../model/selectors/getEditableProfileCardReadonly/getEditableProfileCardReadonly';
-import { ValidateProfileError } from '../model/types/EditableProfileCardSchema';
 import { fetchProfileData } from '../model/services/fetchProfileData/fetchProfileData';
 
 interface EditableProfileCardProps {
