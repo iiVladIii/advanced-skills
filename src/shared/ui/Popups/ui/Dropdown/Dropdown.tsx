@@ -1,9 +1,11 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Fragment, memo, ReactNode } from 'react';
 import { Menu } from '@headlessui/react';
-import { AppLink } from '../AppLink/AppLink';
+import { AppLink } from '../../../AppLink/AppLink';
 import cls from './Dropdown.module.scss';
-import { DropDownDirection } from '../../types/ui';
+import { DropDownDirection } from '../../../../types/ui';
+import { mapDirectionClass } from '../../styles/consts';
+import popupCls from '../../styles/popup.module.scss';
 
 export interface DropdownItem {
     disabled?: boolean;
@@ -19,13 +21,6 @@ interface DropdownProps {
     direction?: DropDownDirection;
 }
 
-const mapDirection:Record<DropDownDirection, string> = {
-    'bottom left': cls.optionsBottomLeft,
-    'bottom right': cls.optionsBottomRight,
-    'top right': cls.optionsTopRight,
-    'top left': cls.optionsTopLeft,
-};
-
 export const Dropdown = memo((props: DropdownProps) => {
     const {
         className,
@@ -34,15 +29,15 @@ export const Dropdown = memo((props: DropdownProps) => {
         direction = 'bottom left',
     } = props;
 
-    const menuClasses = [mapDirection[direction]];
+    const menuClasses = [mapDirectionClass[direction]];
 
     return (
         <Menu
             as="div"
-            className={classNames(cls.Dropdown, {}, [className])}
+            className={classNames(cls.Dropdown, {}, [className, popupCls.popup])}
         >
             <Menu.Button
-                className={cls.btn}
+                className={popupCls.trigger}
             >
                 {trigger}
             </Menu.Button>
@@ -55,7 +50,7 @@ export const Dropdown = memo((props: DropdownProps) => {
                             type="button"
                             disabled={item.disabled}
                             onClick={item.onClick}
-                            className={classNames(cls.item, { [cls.active]: active })}
+                            className={classNames(cls.item, { [popupCls.active]: active })}
                         >
                             {item.content}
                         </button>

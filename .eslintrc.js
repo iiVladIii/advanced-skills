@@ -50,7 +50,7 @@ module.exports = {
                 ignoreAttribute: [
                     'data-testid', 'to', 'target',
                     'justify', 'align', 'direction', 'gap',
-                    'role', 'as',
+                    'role', 'as', 'borderRadius',
                 ],
             },
         ],
