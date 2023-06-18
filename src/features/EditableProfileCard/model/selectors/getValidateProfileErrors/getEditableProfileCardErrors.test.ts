@@ -1,6 +1,6 @@
-import { StateSchema } from 'app/providers/StoreProvider';
-import { Currency } from 'entities/Currency';
-import { Country } from 'entities/Country';
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { Currency } from '@/entities/Currency';
+import { Country } from '@/entities/Country';
 import { ValidateProfileError } from '../../consts/consts';
 import { getValidateProfileErrors } from './getValidateProfileErrors';
 
