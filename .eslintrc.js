@@ -63,6 +63,13 @@ module.exports = {
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
         'vladi-plugin/path-checker': ['error', { alias: '@' }],
+        'vladi-plugin/public-api-imports': [
+            'error',
+            {
+                alias: '@',
+                testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
+            },
+        ],
     },
     globals: {
         __IS_DEV__: true,

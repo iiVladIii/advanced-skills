@@ -1,1 +1,1 @@
-export {} from './ui/ArticleTypeTabs/ArticleTypeTabs';
+export { ArticleTypeTabs } from './ui/ArticleTypeTabs/ArticleTypeTabs';
