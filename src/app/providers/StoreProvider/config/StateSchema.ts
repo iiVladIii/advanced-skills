@@ -4,14 +4,14 @@ import {
 import { AxiosInstance } from 'axios';
 import { CounterSchema } from '@/entities/Counter';
 import { UserSchema } from '@/entities/User';
-import { LoginSchema } from '@/features/AuthByUsername';
+import { LoginSchema } from '@/features/authByUsername';
 import { ArticleDetailsSchema } from '@/entities/Article';
 import { ArticleDetailsPageSchema } from '@/pages/ArticleDetailsPage';
-import { AddCommentFormSchema } from '@/features/AddNewComment';
+import { AddCommentFormSchema } from '@/features/addNewComment';
 import { ArticlesPageSchema } from '@/pages/ArticlesPage';
 import { UISchema } from '@/widgets/UI';
 import { rtkApi } from '@/shared/api/rtkApi';
-import { ProfileSchema } from '@/features/EditableProfileCard';
+import { ProfileSchema } from '@/features/editableProfileCard';
 
 export interface StateSchema {
     counter: CounterSchema;

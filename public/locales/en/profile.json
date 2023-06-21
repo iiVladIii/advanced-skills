@@ -20,5 +20,7 @@
     "Данные не указаны": "Data not specified",
     "Имя и фамилия обязательны": "First and last name required",
     "Некорректный город": "Incorrect city",
-    "Некорректорное имя пользователя": "Invalid user name"
+    "Некорректорное имя пользователя": "Invalid user name",
+    "Как вам профиль пользователя?": "How do you like the user profile?",
+    "Оставьте свой отзыв о статье, это поможет улучшить качество": "Leave your feedback about the article, it will help to improve the quality"
 }

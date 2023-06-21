@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
 import { Text, TextTheme } from '@/shared/ui/Text/Text';
-import { LoginModal } from '@/features/AuthByUsername';
+import { LoginModal } from '@/features/authByUsername';
 import {
     getUserAuthData, isUserAdmin, isUserManager, userActions,
 } from '@/entities/User';
@@ -13,7 +13,7 @@ import { RouterPath } from '@/shared/config/routerConfig/routerConfig';
 import { Dropdown } from '@/shared/ui/Popups';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import { HStack } from '@/shared/ui/Stack';
-import { NotificationButton } from '@/features/NotificationButton';
+import { NotificationButton } from '@/features/notificationButton';
 import { AvatarDropdown } from '@/features/avatarDropdown';
 import cls from './Navbar.module.scss';
 

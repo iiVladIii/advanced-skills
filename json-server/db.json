@@ -674,5 +674,44 @@
       "username": "admin213",
       "avatar": "https://deiquitos.com/wp-content/uploads/2022/12/anonymous-man-in-a-black-hoodie-and-neon-mask-hacking-into-a-computer-scaled-1.jpg"
     }
+  ],
+  "article-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "articleId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "articleId": "2"
+    },
+    {
+      "rate": 5,
+      "articleId": "5",
+      "userId": "1",
+      "feedback": "тестим оценку",
+      "id": "2RdQnsj"
+    }
+  ],
+  "profile-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "profileId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "profileId": "2"
+    }
   ]
 }

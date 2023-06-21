@@ -3,15 +3,15 @@ import { memo, useCallback, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ArticleSortField, ArticleType, ArticleView } from '@/entities/Article';
-import { ArticleViewSelector } from '@/features/ArticleViewSelector';
+import { ArticleViewSelector } from '@/features/articleViewSelector';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Card } from '@/shared/ui/Card/Card';
 import { Input } from '@/shared/ui/Input/Input';
-import { ArticleSortSelector } from '@/features/ArticleSortSelector';
+import { ArticleSortSelector } from '@/features/articleSortSelector';
 import { SortOrder } from '@/shared/types';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
 import { TabItem, Tabs } from '@/shared/ui/Tabs/Tabs';
-import { ArticleTypeTabs } from '@/features/ArticleTypeTabs/ui/ArticleTypeTabs/ArticleTypeTabs';
+import { ArticleTypeTabs } from '@/features/articleTypeTabs/ui/ArticleTypeTabs/ArticleTypeTabs';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import { articlesPageActions } from '../../model/slice/articlesPageSlice';
 import {

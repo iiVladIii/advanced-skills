@@ -1,8 +1,10 @@
 import { useParams } from 'react-router-dom';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { EditableProfileCard } from '@/features/EditableProfileCard';
+import { EditableProfileCard } from '@/features/editableProfileCard';
 import { Page } from '@/widgets/Page/Page';
 import cls from './ProfilePage.module.scss';
+import { ProfileRating } from '@/features/profileRating';
+import { VStack } from '@/shared/ui/Stack';
 
 interface ProfilePageProps {
     className?: string
@@ -15,9 +17,16 @@ const ProfilePage = (props: ProfilePageProps) => {
 
     const { id } = useParams<{id:string}>();
 
+    if (!id) {
+        return null;
+    }
+
     return (
         <Page className={classNames(cls.ProfilePage, {}, [className])}>
-            <EditableProfileCard id={id} />
+            <VStack gap="16" max>
+                <EditableProfileCard id={id} />
+                <ProfileRating profileId={id} />
+            </VStack>
         </Page>
     );
 };
