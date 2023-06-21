@@ -9,13 +9,13 @@ import {
     getUserAuthData, isUserAdmin, isUserManager, userActions,
 } from '@/entities/User';
 import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink/AppLink';
-import { RouterPath } from '@/shared/config/routerConfig/routerConfig';
 import { Dropdown } from '@/shared/ui/Popups';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import { HStack } from '@/shared/ui/Stack';
 import { NotificationButton } from '@/features/notificationButton';
 import { AvatarDropdown } from '@/features/avatarDropdown';
 import cls from './Navbar.module.scss';
+import { RoutePath } from '@/shared/const/router';
 
 interface NavbarProps {
     className?: string
@@ -44,7 +44,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 />
                 <AppLink
                     theme={AppLinkTheme.SECONDARY}
-                    to={RouterPath.article_create}
+                    to={RoutePath.article_create}
                     className={cls.createLink}
                 >
                     {t('Создать статью')}
