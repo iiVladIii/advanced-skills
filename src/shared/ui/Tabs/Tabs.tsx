@@ -1,7 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import {
-    memo, ReactNode, useCallback, useMemo,
-} from 'react';
+import { ReactNode, useCallback, useMemo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Card, CardTheme } from '../Card/Card';
 import cls from './Tabs.module.scss';

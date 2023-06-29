@@ -1,5 +1,5 @@
-import { Fragment, ReactNode, useState } from 'react';
-import { Listbox as HListBox, Transition } from '@headlessui/react';
+import { Fragment, ReactNode } from 'react';
+import { Listbox as HListBox } from '@headlessui/react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { HStack } from '../../../Stack';
 import { Button } from '../../../Button/Button';
