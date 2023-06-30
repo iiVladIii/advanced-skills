@@ -5,7 +5,7 @@ import { NavigateOptions, To } from 'react-router-dom';
 import { counterReducer } from '@/entities/Counter';
 import { userReducer } from '@/entities/User';
 import { $api } from '@/shared/api/api';
-import { uiReducer } from '@/widgets/UI';
+import { uiReducer } from '@/features/UI';
 import { rtkApi } from '@/shared/api/rtkApi';
 import { StateSchema } from './StateSchema';
 import { createReducerManager } from './reducerManager';
