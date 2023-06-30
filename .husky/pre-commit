@@ -7,3 +7,4 @@
 #npm run test:unit
 #npm run storybook:build
 #npm runf test:ui
+npx lint-staged
