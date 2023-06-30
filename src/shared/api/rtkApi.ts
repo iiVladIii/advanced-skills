@@ -1,3 +1,4 @@
+// import 'isomorphic-fetch'; for hide jest warning
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
 import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
 
