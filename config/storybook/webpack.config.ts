@@ -14,7 +14,7 @@ export default ({ config }:{config: webpack.Configuration}) => {
         locales: '',
     };
     config!.resolve!.modules!.push(paths.src);
-    config!.resolve!.modules = config!.resolve!.modules!.reverse();
+    // config!.resolve!.modules = config!.resolve!.modules!.reverse();
     config!.resolve!.alias = {
         ...config.resolve!.alias,
         '@': paths.src,
