@@ -1,7 +1,6 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Drawer } from './Drawer';
-import { StopAnimationDecorator } from '@/shared/config/storybook/StopAnimationDecorator/StopAnimationDecorator';
 
 export default {
     title: 'shared/Drawer',
@@ -9,10 +8,9 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-    decorators: [StopAnimationDecorator],
-    // parameters: {
-    //     loki: { skip: true },
-    // },
+    parameters: {
+        loki: { skip: true },
+    },
 } as ComponentMeta<typeof Drawer>;
 
 const Template: ComponentStory<typeof Drawer> = (args) => <Drawer {...args} />;

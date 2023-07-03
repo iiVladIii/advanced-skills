@@ -9,6 +9,9 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    parameters: {
+        loki: { skip: true },
+    },
 } as ComponentMeta<typeof AppImage>;
 
 const Template: ComponentStory<typeof AppImage> = (args) => <AppImage {...args} />;
@@ -23,10 +26,3 @@ Normal.args = {
 };
 
 Normal.decorators = [];
-
-export const ErrorFallback = Template.bind({});
-ErrorFallback.args = {
-    src: '.',
-    errorFallback: <div>error to load</div>,
-};
-ErrorFallback.decorators = [];

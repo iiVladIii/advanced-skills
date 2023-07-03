@@ -2,7 +2,6 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import withMock from 'storybook-addon-mock';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
-import Avatar from '@/shared/assets/tests/avatar.jpeg';
 import { Currency } from '@/entities/Currency';
 import { Country } from '@/entities/Country';
 import ProfilePage from './ProfilePage';
@@ -44,7 +43,7 @@ Light.decorators = [ThemeDecorator(Theme.LIGHT),
                 first: 'name',
                 city: 'City',
                 age: 20,
-                avatar: Avatar,
+                avatar: 'static/assets/avatar.jpeg',
                 lastname: 'lastname',
                 currency: Currency.RUB,
                 country: Country.Russia,
@@ -62,7 +61,7 @@ Dark.decorators = [StoreDecorator(
                 first: 'name',
                 city: 'City',
                 age: 20,
-                avatar: Avatar,
+                avatar: 'static/assets/avatar.jpeg',
                 lastname: 'lastname',
                 currency: Currency.RUB,
                 country: Country.Russia,

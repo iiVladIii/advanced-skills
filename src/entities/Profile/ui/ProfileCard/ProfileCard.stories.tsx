@@ -3,7 +3,6 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { Currency } from '@/entities/Currency';
 import { Country } from '@/entities/Country';
-import Avatar from '@/shared/assets/tests/avatar.jpeg';
 import { ProfileCard } from './ProfileCard';
 
 export default {
@@ -24,7 +23,7 @@ Primary.args = {
         first: 'name',
         city: 'City',
         age: 20,
-        avatar: Avatar,
+        avatar: 'static/assets/avatar.jpeg',
         lastname: 'lastname',
         currency: Currency.RUB,
         country: Country.Russia,
@@ -38,7 +37,7 @@ Editable.args = {
         first: 'name',
         city: 'City',
         age: 20,
-        avatar: Avatar,
+        avatar: 'static/assets/avatar.jpeg',
         lastname: 'lastname',
         currency: Currency.RUB,
         country: Country.Russia,
@@ -53,7 +52,7 @@ Error.args = {
         first: 'name',
         city: 'City',
         age: 20,
-        avatar: Avatar,
+        avatar: 'static/assets/avatar.jpeg',
         lastname: 'lastname',
         currency: Currency.RUB,
         country: Country.Russia,
@@ -68,7 +67,7 @@ Loading.args = {
         first: 'name',
         city: 'City',
         age: 20,
-        avatar: Avatar,
+        avatar: 'static/assets/avatar.jpeg',
         lastname: 'lastname',
         currency: Currency.RUB,
         country: Country.Russia,

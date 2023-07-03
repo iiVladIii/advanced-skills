@@ -19,7 +19,7 @@ Normal.args = {
             id: '1',
             user: {
                 id: '1',
-                avatar: '/static/assets/avatar-2.webp',
+                avatar: 'static/assets/avatar-2.webp',
                 username: 'username',
             },
             text: 'comment text',
@@ -28,7 +28,7 @@ Normal.args = {
             id: '2',
             user: {
                 id: '2',
-                avatar: '/static/assets/avatar.jpeg',
+                avatar: 'static/assets/avatar.jpeg',
                 username: 'username - 2',
             },
             text: 'comment text - 2',
