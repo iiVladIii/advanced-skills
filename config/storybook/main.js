@@ -15,6 +15,7 @@ module.exports = {
         'storybook-addon-themes',
     ],
     framework: '@storybook/react',
+    staticDirs: ['../../src/shared/assets/tests/*'],
     core: {
         builder: '@storybook/builder-webpack5',
     },
