@@ -2,7 +2,6 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { AvatarDropdown } from './AvatarDropdown';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
-import Avatar from '@/shared/assets/tests/avatar.jpeg';
 
 export default {
     title: 'features/AvatarDropdown',
@@ -19,7 +18,7 @@ Normal.args = {};
 Normal.decorators = [StoreDecorator({
     user: {
         authData: {
-            avatar: Avatar,
+            avatar: 'static/assets/avatar.jpeg',
         },
     },
 })];

@@ -3,8 +3,8 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { EditableProfileCard } from '@/features/editableProfileCard';
 import { Page } from '@/widgets/Page';
 import cls from './ProfilePage.module.scss';
-import { ProfileRating } from '@/features/profileRating';
 import { VStack } from '@/shared/ui/Stack';
+import { ProfileRating } from '@/features/profileRating';
 
 interface ProfilePageProps {
     className?: string
@@ -17,15 +17,15 @@ const ProfilePage = (props: ProfilePageProps) => {
 
     const { id } = useParams<{id:string}>();
 
-    if (!id) {
-        return null;
-    }
+    // if (!id) {
+    //     return null;
+    // }
 
     return (
         <Page data-testid="ProfilePage" className={classNames(cls.ProfilePage, {}, [className])}>
             <VStack gap="16" max>
                 <EditableProfileCard id={id} />
-                <ProfileRating profileId={id} />
+                <ProfileRating profileId={id ?? ''} />
             </VStack>
         </Page>
     );

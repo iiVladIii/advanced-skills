@@ -19,7 +19,7 @@ Normal.args = {
             id: '1',
             user: {
                 id: '1',
-                avatar: 'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
+                avatar: '/static/assets/avatar-2.webp',
                 username: 'username',
             },
             text: 'comment text',
@@ -28,7 +28,7 @@ Normal.args = {
             id: '2',
             user: {
                 id: '2',
-                avatar: 'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
+                avatar: '/static/assets/avatar.jpeg',
                 username: 'username - 2',
             },
             text: 'comment text - 2',

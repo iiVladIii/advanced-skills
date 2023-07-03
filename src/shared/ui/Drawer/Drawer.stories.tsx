@@ -9,6 +9,7 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    decorators: [StopAnimationDecorator],
     // parameters: {
     //     loki: { skip: true },
     // },
@@ -20,4 +21,4 @@ export const Normal = Template.bind({});
 Normal.args = {
     isOpen: true,
 };
-Normal.decorators = [StopAnimationDecorator];
+// Normal.decorators = [StopAnimationDecorator];

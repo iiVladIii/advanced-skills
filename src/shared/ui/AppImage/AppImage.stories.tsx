@@ -2,7 +2,6 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { AppImage } from './AppImage';
 import { Skeleton } from '../Skeleton';
-import Avatar from '@/shared/assets/tests/avatar.jpeg';
 
 export default {
     title: 'shared/AppImage',
@@ -17,7 +16,7 @@ const Template: ComponentStory<typeof AppImage> = (args) => <AppImage {...args} 
 export const Normal = Template.bind({});
 
 Normal.args = {
-    src: Avatar,
+    src: 'static/assets/avatar.jpeg',
     fallback: <Skeleton />,
     errorFallback: <div>error to load</div>,
     style: { width: 300, height: 300 },
