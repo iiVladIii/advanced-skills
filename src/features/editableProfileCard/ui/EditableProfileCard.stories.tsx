@@ -70,7 +70,6 @@ Error.decorators = [StoreDecorator({
 
 export const Loading = Template.bind({});
 Loading.args = {};
-
 Loading.decorators = [StoreDecorator({
     profile: {
         readonly: false,
