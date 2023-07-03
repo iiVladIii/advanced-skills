@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { AppImage } from './AppImage';
 import { Skeleton } from '../Skeleton';
-import Avatar from '../../../../config/storybook/static/assets/avatar.jpeg';
+import Avatar from '@/shared/assets/tests/avatar.jpeg';
 
 export default {
     title: 'shared/AppImage',
