@@ -1,7 +1,5 @@
 module.exports = {
-    stories: [
-        '../../src/**/*.stories.@(js|jsx|ts|tsx)',
-    ],
+    stories: ['../../src/**/*.stories.@(js|jsx|ts|tsx)'],
     addons: [
         '@storybook/addon-links',
         {
@@ -11,14 +9,20 @@ module.exports = {
             },
         },
         '@storybook/addon-interactions',
-        'storybook-addon-mock/register',
-        'storybook-addon-themes',
-    ],
-    framework: '@storybook/react',
-    core: {
-        builder: '@storybook/builder-webpack5',
+        'storybook-addon-mock',
+        'storybook-addon-themes'],
+    framework: {
+        name: '@storybook/react-webpack5',
+        options: {},
     },
-    staticDirs: [
-        { from: '../../src/shared/assets/tests', to: 'static/assets' },
-    ],
+    staticDirs: [{
+        from: '../../src/shared/assets/tests',
+        to: 'static/assets',
+    }],
+    docs: {
+        autodocs: false,
+    },
+    features: {
+        storyStoreV7: false,
+    },
 };
