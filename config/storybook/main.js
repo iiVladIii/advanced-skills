@@ -10,18 +10,23 @@ module.exports = {
         },
         '@storybook/addon-interactions',
         'storybook-addon-mock',
-        'storybook-addon-themes'],
+        'storybook-addon-themes',
+    ],
+
     framework: {
         name: '@storybook/react-webpack5',
         options: {},
     },
+
     staticDirs: [{
         from: '../../src/shared/assets/tests',
         to: 'static/assets',
     }],
+
     docs: {
         autodocs: false,
     },
+
     features: {
         storyStoreV7: false,
     },
