@@ -58,14 +58,23 @@ export const RatingCard = memo((props: RatingCardProps) => {
     const modalContent = (
         <>
             <Text title={feedbackTitle} />
-            <Input value={feedback} onChange={setFeedback} placeholder={t('Ваш отзыв')} />
+            <Input
+                data-testid="RatingCard.Input"
+                value={feedback}
+                onChange={setFeedback}
+                placeholder={t('Ваш отзыв')}
+            />
         </>
     );
 
     const isMobile = useDeviceDetect();
 
     return (
-        <Card fullWidth className={className}>
+        <Card
+            data-testid="RatingCard"
+            fullWidth
+            className={className}
+        >
             <VStack gap="8" align="center" max>
                 <Text title={starsCount ? t('Спасибо за оценку!') : title} />
                 <StarRating
@@ -86,10 +95,12 @@ export const RatingCard = memo((props: RatingCardProps) => {
                                 <Button
                                     onClick={cancelHandler}
                                     theme={ButtonTheme.OUTLINE_RED}
+                                    data-testid="RatingCard.Close"
                                 >
                                     {t('Закрыть')}
                                 </Button>
                                 <Button
+                                    data-testid="RatingCard.Send"
                                     onClick={acceptHandler}
                                     theme={ButtonTheme.OUTLINE}
                                 >

@@ -682,6 +682,17 @@
       "city": "Moscow",
       "username": "admin213",
       "avatar": "https://deiquitos.com/wp-content/uploads/2022/12/anonymous-man-in-a-black-hoodie-and-neon-mask-hacking-into-a-computer-scaled-1.jpg"
+    },
+    {
+      "id": "3",
+      "first": "test",
+      "lastname": "test-lastname",
+      "age": 100,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Moscow",
+      "username": "usertest",
+      "avatar": "https://deiquitos.com/wp-content/uploads/2022/12/anonymous-man-in-a-black-hoodie-and-neon-mask-hacking-into-a-computer-scaled-1.jpg"
     }
   ],
   "article-ratings": [
