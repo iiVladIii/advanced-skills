@@ -19,7 +19,14 @@ module.exports = {
         ecmaVersion: 'latest',
         sourceType: 'module',
     },
-    plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks', 'vladi-plugin', 'unused-imports'],
+    plugins: [
+        'react',
+        '@typescript-eslint',
+        'i18next',
+        'react-hooks',
+        'vladi-plugin',
+        'unused-imports',
+    ],
     rules: {
         'react/jsx-filename-extension': [
             2,
@@ -75,7 +82,11 @@ module.exports = {
             'error',
             {
                 alias: '@',
-                testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
+                testFilesPatterns: [
+                    '**/*.test.*',
+                    '**/*.story.*',
+                    '**/StoreDecorator.tsx',
+                ],
             },
         ],
         'vladi-plugin/layer-imports': [
@@ -93,7 +104,7 @@ module.exports = {
             },
         ],
         'unused-imports/no-unused-imports': 'error',
-        // 'react/jsx-max-props-per-line': ['error', { maximum: 3 }],
+        'react/jsx-max-props-per-line': ['error', { maximum: 4 }],
     },
     globals: {
         __IS_DEV__: true,
