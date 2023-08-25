@@ -7,22 +7,23 @@ import { VStack } from '@/shared/ui/Stack';
 import { ProfileRating } from '@/features/profileRating';
 
 interface ProfilePageProps {
-    className?: string
+    className?: string;
 }
 
 const ProfilePage = (props: ProfilePageProps) => {
-    const {
-        className,
-    } = props;
+    const { className } = props;
 
-    const { id } = useParams<{id:string}>();
+    const { id } = useParams<{ id: string }>();
 
     if (!id) {
         return null;
     }
 
     return (
-        <Page data-testid="ProfilePage" className={classNames(cls.ProfilePage, {}, [className])}>
+        <Page
+            data-testid="ProfilePage"
+            className={classNames(cls.ProfilePage, {}, [className])}
+        >
             <VStack gap="16" max>
                 <EditableProfileCard id={id} />
                 <ProfileRating profileId={id} />

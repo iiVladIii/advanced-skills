@@ -2,13 +2,14 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { Article } from '@/entities/Article';
 
-export const fetchArticleRecommendations = createAsyncThunk<Article[], void, ThunkConfig<string>>(
+export const fetchArticleRecommendations = createAsyncThunk<
+    Article[],
+    void,
+    ThunkConfig<string>
+>(
     'articleDetailsRecommendations/fetchArticleRecommendations',
     async (_, thunkAPI) => {
-        const {
-            extra,
-            rejectWithValue,
-        } = thunkAPI;
+        const { extra, rejectWithValue } = thunkAPI;
         try {
             const response = await extra.api.get<Article[]>('/articles', {
                 params: {

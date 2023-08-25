@@ -13,17 +13,17 @@ import cls from './ProfileCard.module.scss';
 interface ProfileCardProps {
     className?: string;
     data?: Profile;
-    isLoading?:boolean;
+    isLoading?: boolean;
     error: string | undefined;
-    readonly?: boolean
-    onChangeFirstname?: (value?:string) => void;
-    onChangeLastname?: (value?:string) => void;
-    onChangeCity?: (value?:string) => void;
-    onChangeAge?: (value?:string) => void;
-    onChangeUsername?: (value?:string) => void;
-    onChangeAvatar?: (value?:string) => void;
-    onChangeCurrency?: (currency:Currency) => void;
-    onChangeCountry?: (country:Country) => void;
+    readonly?: boolean;
+    onChangeFirstname?: (value?: string) => void;
+    onChangeLastname?: (value?: string) => void;
+    onChangeCity?: (value?: string) => void;
+    onChangeAge?: (value?: string) => void;
+    onChangeUsername?: (value?: string) => void;
+    onChangeAvatar?: (value?: string) => void;
+    onChangeCurrency?: (currency: Currency) => void;
+    onChangeCountry?: (country: Country) => void;
 }
 
 export const ProfileCard = (props: ProfileCardProps) => {
@@ -46,7 +46,14 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
     if (isLoading) {
         return (
-            <HStack max justify="center" className={classNames(cls.ProfileCard, {}, [className, cls.loading])}>
+            <HStack
+                max
+                justify="center"
+                className={classNames(cls.ProfileCard, {}, [
+                    className,
+                    cls.loading,
+                ])}
+            >
                 <Loader />
             </HStack>
         );
@@ -54,7 +61,14 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
     if (error) {
         return (
-            <HStack max justify="center" className={classNames(cls.ProfileCard, {}, [className, cls.error])}>
+            <HStack
+                max
+                justify="center"
+                className={classNames(cls.ProfileCard, {}, [
+                    className,
+                    cls.error,
+                ])}
+            >
                 <Text
                     theme={TextTheme.ERROR}
                     title={t('Произошла ошибка при загрузке профлия')}
@@ -65,20 +79,21 @@ export const ProfileCard = (props: ProfileCardProps) => {
         );
     }
 
-    const mods:Mods = {
+    const mods: Mods = {
         [cls.editing]: !readonly,
     };
 
     return (
-        <VStack max gap="16" className={classNames(cls.ProfileCard, mods, [className])}>
-            {data?.avatar
-                        && (
-                            <HStack max justify="center" className={cls.avatarWrapper}>
-                                <Avatar
-                                    src={data.avatar}
-                                />
-                            </HStack>
-                        )}
+        <VStack
+            max
+            gap="16"
+            className={classNames(cls.ProfileCard, mods, [className])}
+        >
+            {data?.avatar && (
+                <HStack max justify="center" className={cls.avatarWrapper}>
+                    <Avatar src={data.avatar} />
+                </HStack>
+            )}
             <Input
                 value={data?.first}
                 placeholder={t('Ваше имя')}

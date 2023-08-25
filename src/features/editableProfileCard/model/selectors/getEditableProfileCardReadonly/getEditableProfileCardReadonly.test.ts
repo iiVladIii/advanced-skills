@@ -22,11 +22,15 @@ describe('getEditableProfileCardReadonly.test', () => {
                 readonly: false,
             },
         };
-        expect(getEditableProfileCardReadonly(state as StateSchema)).toEqual(false);
+        expect(getEditableProfileCardReadonly(state as StateSchema)).toEqual(
+            false,
+        );
     });
 
     test('work with empty state', () => {
         const state: DeepPartial<StateSchema> = {};
-        expect(getEditableProfileCardReadonly(state as StateSchema)).toEqual(undefined);
+        expect(getEditableProfileCardReadonly(state as StateSchema)).toEqual(
+            undefined,
+        );
     });
 });

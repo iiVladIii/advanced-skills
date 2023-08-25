@@ -8,27 +8,31 @@ import { Skeleton } from '../Skeleton';
 
 interface AvatarProps {
     className?: string;
-    src?:string;
+    src?: string;
     size?: number;
     alt?: string;
     fallbackInverted?: boolean;
 }
 
 export const Avatar = (props: AvatarProps) => {
-    const {
-        className,
-        src,
-        size,
-        alt,
-        fallbackInverted,
-    } = props;
+    const { className, src, size, alt, fallbackInverted } = props;
 
-    const styles = useMemo<CSSProperties>(() => ({
-        width: size,
-        height: size,
-    }), [size]);
+    const styles = useMemo<CSSProperties>(
+        () => ({
+            width: size,
+            height: size,
+        }),
+        [size],
+    );
 
-    const errorFallback = <Icon inverted={fallbackInverted} Svg={UserIcon} width={size} height={size} />;
+    const errorFallback = (
+        <Icon
+            inverted={fallbackInverted}
+            Svg={UserIcon}
+            width={size}
+            height={size}
+        />
+    );
     const fallback = <Skeleton width={size} height={size} borderRadius="50%" />;
 
     return (
@@ -40,6 +44,5 @@ export const Avatar = (props: AvatarProps) => {
             fallback={fallback}
             errorFallback={errorFallback}
         />
-
     );
 };

@@ -24,11 +24,15 @@ describe('getValidateProfileErrors.test', () => {
                 validateErrors: [ValidateProfileError.INCORRECT_USER_DATA],
             },
         };
-        expect(getValidateProfileErrors(state as StateSchema)).toEqual([ValidateProfileError.INCORRECT_USER_DATA]);
+        expect(getValidateProfileErrors(state as StateSchema)).toEqual([
+            ValidateProfileError.INCORRECT_USER_DATA,
+        ]);
     });
 
     test('work with empty state', () => {
         const state: DeepPartial<StateSchema> = {};
-        expect(getValidateProfileErrors(state as StateSchema)).toEqual(undefined);
+        expect(getValidateProfileErrors(state as StateSchema)).toEqual(
+            undefined,
+        );
     });
 });

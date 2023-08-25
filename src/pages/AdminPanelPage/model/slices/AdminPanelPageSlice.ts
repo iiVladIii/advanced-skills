@@ -7,9 +7,7 @@ export const AdminPanelPageSlice = createSlice({
     name: 'AdminPanelPage',
     initialState,
     reducers: {
-        template: (state, action: PayloadAction<string>) => {
-
-        },
+        template: (state, action: PayloadAction<string>) => {},
     },
     // extraReducers: (builder) => {
     //     builder

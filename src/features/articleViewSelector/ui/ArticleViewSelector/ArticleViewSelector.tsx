@@ -11,7 +11,7 @@ import cls from './ArticleViewSelector.module.scss';
 interface ArticleViewSelectorProps {
     className?: string;
     view: ArticleView;
-    onViewClick?: (view: ArticleView)=> void;
+    onViewClick?: (view: ArticleView) => void;
 }
 
 const viewTypes = [
@@ -25,13 +25,9 @@ const viewTypes = [
     },
 ];
 export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
-    const {
-        className,
-        view,
-        onViewClick,
-    } = props;
+    const { className, view, onViewClick } = props;
     const { t } = useTranslation();
-    const onClick = (newView:ArticleView) => () => {
+    const onClick = (newView: ArticleView) => () => {
         onViewClick?.(newView);
     };
     return (
@@ -43,7 +39,9 @@ export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
                     onClick={onClick(viewType.view)}
                 >
                     <Icon
-                        className={classNames('', { [cls.notSelected]: viewType.view !== view })}
+                        className={classNames('', {
+                            [cls.notSelected]: viewType.view !== view,
+                        })}
                         Svg={viewType.icon}
                     />
                 </Button>

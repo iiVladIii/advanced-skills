@@ -7,15 +7,12 @@ import { getUserAuthData } from '@/entities/User';
 import { Skeleton } from '@/shared/ui/Skeleton';
 
 export interface ArticleRatingProps {
-    className?: string
+    className?: string;
     articleId: string;
 }
 
 const ArticleRating = memo((props: ArticleRatingProps) => {
-    const {
-        className,
-        articleId,
-    } = props;
+    const { className, articleId } = props;
     const { t } = useTranslation('article-details');
     const userData = useSelector(getUserAuthData);
 
@@ -26,26 +23,35 @@ const ArticleRating = memo((props: ArticleRatingProps) => {
 
     const [rateArticleMutation] = useRateArticle();
 
-    const handleRateArticleMutation = useCallback((starsCount: number, feedback?:string) => {
-        try {
-            rateArticleMutation({
-                rate: starsCount,
-                articleId,
-                userId: userData?.id ?? '',
-                feedback,
-            });
-        } catch (e: any) {
-            console.log(e);
-        }
-    }, [articleId, rateArticleMutation, userData?.id]);
+    const handleRateArticleMutation = useCallback(
+        (starsCount: number, feedback?: string) => {
+            try {
+                rateArticleMutation({
+                    rate: starsCount,
+                    articleId,
+                    userId: userData?.id ?? '',
+                    feedback,
+                });
+            } catch (e: any) {
+                console.log(e);
+            }
+        },
+        [articleId, rateArticleMutation, userData?.id],
+    );
 
-    const onAccept = useCallback((starsCount: number, feedback?:string) => {
-        handleRateArticleMutation(starsCount, feedback);
-    }, [handleRateArticleMutation]);
+    const onAccept = useCallback(
+        (starsCount: number, feedback?: string) => {
+            handleRateArticleMutation(starsCount, feedback);
+        },
+        [handleRateArticleMutation],
+    );
 
-    const onCancel = useCallback((starsCount: number) => {
-        handleRateArticleMutation(starsCount);
-    }, [handleRateArticleMutation]);
+    const onCancel = useCallback(
+        (starsCount: number) => {
+            handleRateArticleMutation(starsCount);
+        },
+        [handleRateArticleMutation],
+    );
 
     if (isLoading) {
         return <Skeleton width="100%" height={120} />;
@@ -60,7 +66,9 @@ const ArticleRating = memo((props: ArticleRatingProps) => {
             rate={rating?.rate}
             className={className}
             title={t('Оцените статью')}
-            feedbackTitle={t('Оставьте свой отзыв о статье, это поможет улучшить качество')}
+            feedbackTitle={t(
+                'Оставьте свой отзыв о статье, это поможет улучшить качество',
+            )}
             hasFeedback
         />
     );

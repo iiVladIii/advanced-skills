@@ -13,7 +13,9 @@ export default {
     decorators: [],
 } as ComponentMeta<typeof ArticleDetailsPage>;
 
-const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => <ArticleDetailsPage {...args} />;
+const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => (
+    <ArticleDetailsPage {...args} />
+);
 
 const article: Article = {
     id: '1',
@@ -43,15 +45,17 @@ const article: Article = {
 
 export const Normal = Template.bind({});
 Normal.args = {};
-Normal.decorators = [StoreDecorator({
-    articleDetails: {
-        data: article,
-        error: '',
-    },
-    addCommentForm: {
-        text: '',
-    },
-})];
+Normal.decorators = [
+    StoreDecorator({
+        articleDetails: {
+            data: article,
+            error: '',
+        },
+        addCommentForm: {
+            text: '',
+        },
+    }),
+];
 Normal.parameters = {
     mockData: [
         {

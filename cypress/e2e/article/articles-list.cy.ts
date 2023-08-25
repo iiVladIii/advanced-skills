@@ -6,7 +6,10 @@ describe('Пользователь заходит на страницу со с�
     });
     it('и статьи успешно подгружаются', () => {
         cy.getByTestId('ArticleList').should('exist');
-        cy.getByTestId('ArticleListItem').should('have.lengthOf.greaterThan', 3);
+        cy.getByTestId('ArticleListItem').should(
+            'have.lengthOf.greaterThan',
+            3,
+        );
     });
 
     it('На стабах (фикстурах)', () => {
@@ -17,7 +20,10 @@ describe('Пользователь заходит на страницу со с�
 
     it.skip('Пример заскипанного теста', () => {
         cy.getByTestId('ArticleList').should('exist');
-        cy.getByTestId('ArticleListItem').should('have.lengthOf.greaterThan', 3);
+        cy.getByTestId('ArticleListItem').should(
+            'have.lengthOf.greaterThan',
+            3,
+        );
         cy.getByTestId('adaasdsa').should('exist');
     });
 });

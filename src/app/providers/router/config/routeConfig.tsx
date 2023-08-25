@@ -79,5 +79,4 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
         path: '*',
         element: <NotFoundPage />,
     },
-
 };

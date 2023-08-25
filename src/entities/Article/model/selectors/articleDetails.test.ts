@@ -36,7 +36,7 @@ const article: Article = {
 
 describe('articleDetails.test', () => {
     test('should return data', () => {
-        const state:DeepPartial<StateSchema> = {
+        const state: DeepPartial<StateSchema> = {
             articleDetails: {
                 isLoading: true,
                 error: 'error',
@@ -47,7 +47,7 @@ describe('articleDetails.test', () => {
     });
 
     test('should return is loading true', () => {
-        const state:DeepPartial<StateSchema> = {
+        const state: DeepPartial<StateSchema> = {
             articleDetails: {
                 isLoading: true,
                 error: 'error',
@@ -58,7 +58,7 @@ describe('articleDetails.test', () => {
     });
 
     test('should work with empty state date', () => {
-        const state:DeepPartial<StateSchema> = {
+        const state: DeepPartial<StateSchema> = {
             articleDetails: {
                 error: 'error',
             },
@@ -67,7 +67,7 @@ describe('articleDetails.test', () => {
     });
 
     test('should work with empty state is loading', () => {
-        const state:DeepPartial<StateSchema> = {
+        const state: DeepPartial<StateSchema> = {
             articleDetails: {
                 error: 'error',
                 data: article,
@@ -77,7 +77,7 @@ describe('articleDetails.test', () => {
     });
 
     test('should return error', () => {
-        const state:DeepPartial<StateSchema> = {
+        const state: DeepPartial<StateSchema> = {
             articleDetails: {
                 isLoading: true,
                 error: 'error',
@@ -88,7 +88,7 @@ describe('articleDetails.test', () => {
     });
 
     test('should return empty state error', () => {
-        const state:DeepPartial<StateSchema> = {
+        const state: DeepPartial<StateSchema> = {
             articleDetails: {
                 isLoading: true,
                 data: article,

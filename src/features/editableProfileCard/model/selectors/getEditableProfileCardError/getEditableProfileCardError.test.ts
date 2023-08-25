@@ -19,11 +19,15 @@ describe('get editable profile error', () => {
                 data,
             },
         };
-        expect(getEditableProfileCardError(state as StateSchema)).toEqual('error');
+        expect(getEditableProfileCardError(state as StateSchema)).toEqual(
+            'error',
+        );
     });
 
     test('work with empty state', () => {
         const state: DeepPartial<StateSchema> = {};
-        expect(getEditableProfileCardError(state as StateSchema)).toEqual(undefined);
+        expect(getEditableProfileCardError(state as StateSchema)).toEqual(
+            undefined,
+        );
     });
 });

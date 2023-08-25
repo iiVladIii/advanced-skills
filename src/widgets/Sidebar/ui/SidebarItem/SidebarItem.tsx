@@ -8,15 +8,12 @@ import cls from './SidebarItem.module.scss';
 import { SidebarItemType } from '../../model/types/sidebar';
 
 interface SidebarItemProps {
-    item: SidebarItemType
-    collapsed?: boolean
+    item: SidebarItemType;
+    collapsed?: boolean;
 }
 
 export const SidebarItem = memo((props: SidebarItemProps) => {
-    const {
-        item,
-        collapsed,
-    } = props;
+    const { item, collapsed } = props;
     const { t } = useTranslation();
 
     const isAuth = useSelector(getUserAuthData);
@@ -32,9 +29,7 @@ export const SidebarItem = memo((props: SidebarItemProps) => {
             theme={AppLinkTheme.SECONDARY}
         >
             <item.Icon className={cls.icon} />
-            <span className={cls.link}>
-                {t(item.text)}
-            </span>
+            <span className={cls.link}>{t(item.text)}</span>
         </AppLink>
     );
 });

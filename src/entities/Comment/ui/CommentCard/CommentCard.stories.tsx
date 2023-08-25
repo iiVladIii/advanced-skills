@@ -10,7 +10,9 @@ export default {
     },
 } as ComponentMeta<typeof CommentCard>;
 
-const Template: ComponentStory<typeof CommentCard> = (args) => <CommentCard {...args} />;
+const Template: ComponentStory<typeof CommentCard> = (args) => (
+    <CommentCard {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {
@@ -23,7 +25,6 @@ Normal.args = {
         },
         text: 'comment text',
     },
-
 };
 Normal.decorators = [];
 
@@ -39,6 +40,5 @@ Loading.args = {
         },
         text: 'comment text',
     },
-
 };
 Loading.decorators = [];

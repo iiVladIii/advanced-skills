@@ -24,6 +24,8 @@ describe('getEditableProfileCardData.test', () => {
 
     test('work with empty state', () => {
         const state: DeepPartial<StateSchema> = {};
-        expect(getEditableProfileCardData(state as StateSchema)).toEqual(undefined);
+        expect(getEditableProfileCardData(state as StateSchema)).toEqual(
+            undefined,
+        );
     });
 });

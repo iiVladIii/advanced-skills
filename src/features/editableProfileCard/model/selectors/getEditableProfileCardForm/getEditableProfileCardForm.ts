@@ -1,3 +1,4 @@
 import { StateSchema } from '@/app/providers/StoreProvider';
 
-export const getEditableProfileCardForm = (state:StateSchema) => state.profile?.form;
+export const getEditableProfileCardForm = (state: StateSchema) =>
+    state.profile?.form;

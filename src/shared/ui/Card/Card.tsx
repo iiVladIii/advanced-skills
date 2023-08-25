@@ -7,8 +7,8 @@ export enum CardTheme {
     OUTLINED = 'outlined',
 }
 
-interface CardProps extends HTMLAttributes<HTMLDivElement>{
-    children:ReactNode;
+interface CardProps extends HTMLAttributes<HTMLDivElement> {
+    children: ReactNode;
     className?: string;
     theme?: CardTheme;
     fullWidth?: boolean;
@@ -26,7 +26,10 @@ export const Card = memo((props: CardProps) => {
     return (
         <div
             {...otherProps}
-            className={classNames(cls.Card, { [cls.fullWidth]: fullWidth }, [className, cls[theme]])}
+            className={classNames(cls.Card, { [cls.fullWidth]: fullWidth }, [
+                className,
+                cls[theme],
+            ])}
         >
             {children}
         </div>

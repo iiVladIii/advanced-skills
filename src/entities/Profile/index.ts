@@ -1,7 +1,3 @@
-export type {
-    Profile,
-} from './model/type/profile';
+export type { Profile } from './model/type/profile';
 
-export {
-    ProfileCard,
-} from './ui/ProfileCard/ProfileCard';
+export { ProfileCard } from './ui/ProfileCard/ProfileCard';

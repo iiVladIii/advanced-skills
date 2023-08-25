@@ -4,13 +4,11 @@ import { Page } from '@/widgets/Page';
 import cls from './AdminPanelPage.module.scss';
 
 interface AdminPanelPageProps {
-    className?: string
+    className?: string;
 }
 
 const AdminPanelPage = memo((props: AdminPanelPageProps) => {
-    const {
-        className,
-    } = props;
+    const { className } = props;
 
     return (
         <Page

@@ -14,18 +14,19 @@ const Template: ComponentStory<typeof Code> = (args) => <Code {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {
-    text: 'import React from \'react\';\n'
-        + 'import { ComponentMeta, ComponentStory } from \'@storybook/react\';\n'
-        + 'import { Code } from \'./Code\';\n'
-        + '\n'
-        + 'export default {\n'
-        + '    title: \'___/Code\',\n'
-        + '    component: Code,\n'
-        + '    argTypes: {\n'
-        + '        backgroundColor: { control: \'color\' },\n'
-        + '    },\n'
-        + '} as ComponentMeta<typeof Code>;\n'
-        + '\n'
-        + 'const Template: ComponentStory<typeof Code> = (args) => <Code {...args} />;',
+    text:
+        "import React from 'react';\n" +
+        "import { ComponentMeta, ComponentStory } from '@storybook/react';\n" +
+        "import { Code } from './Code';\n" +
+        '\n' +
+        'export default {\n' +
+        "    title: '___/Code',\n" +
+        '    component: Code,\n' +
+        '    argTypes: {\n' +
+        "        backgroundColor: { control: 'color' },\n" +
+        '    },\n' +
+        '} as ComponentMeta<typeof Code>;\n' +
+        '\n' +
+        'const Template: ComponentStory<typeof Code> = (args) => <Code {...args} />;',
 };
 Normal.decorators = [];

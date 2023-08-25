@@ -14,74 +14,84 @@ export default {
     decorators: [StoreDecorator({})],
 } as ComponentMeta<typeof EditableProfileCard>;
 
-const Template: ComponentStory<typeof EditableProfileCard> = (args) => <EditableProfileCard {...args} />;
+const Template: ComponentStory<typeof EditableProfileCard> = (args) => (
+    <EditableProfileCard {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {};
-Primary.decorators = [StoreDecorator({
-    profile: {
-        readonly: true,
-        form: {
-            first: 'name',
-            city: 'City',
-            age: 20,
-            avatar: 'static/assets/avatar.jpeg',
-            lastname: 'lastname',
-            currency: Currency.RUB,
-            country: Country.Russia,
+Primary.decorators = [
+    StoreDecorator({
+        profile: {
+            readonly: true,
+            form: {
+                first: 'name',
+                city: 'City',
+                age: 20,
+                avatar: 'static/assets/avatar.jpeg',
+                lastname: 'lastname',
+                currency: Currency.RUB,
+                country: Country.Russia,
+            },
         },
-    },
-})];
+    }),
+];
 
 export const Editable = Template.bind({});
 Editable.args = {};
-Editable.decorators = [StoreDecorator({
-    profile: {
-        readonly: false,
-        data: {
-            first: 'name',
-            city: 'City',
-            age: 20,
-            avatar: 'static/assets/avatar.jpeg',
-            lastname: 'lastname',
-            currency: Currency.RUB,
-            country: Country.Russia,
+Editable.decorators = [
+    StoreDecorator({
+        profile: {
+            readonly: false,
+            data: {
+                first: 'name',
+                city: 'City',
+                age: 20,
+                avatar: 'static/assets/avatar.jpeg',
+                lastname: 'lastname',
+                currency: Currency.RUB,
+                country: Country.Russia,
+            },
         },
-    },
-})];
+    }),
+];
 
 export const Error = Template.bind({});
 Error.args = {};
-Error.decorators = [StoreDecorator({
-    profile: {
-        readonly: false,
-        error: 'Error',
-        data: {
-            first: 'name',
-            city: 'City',
-            age: 20,
-            avatar: 'static/assets/avatar.jpeg',
-            lastname: 'lastname',
-            currency: Currency.RUB,
-            country: Country.Russia,
+Error.decorators = [
+    StoreDecorator({
+        profile: {
+            readonly: false,
+            error: 'Error',
+            data: {
+                first: 'name',
+                city: 'City',
+                age: 20,
+                avatar: 'static/assets/avatar.jpeg',
+                lastname: 'lastname',
+                currency: Currency.RUB,
+                country: Country.Russia,
+            },
         },
-    },
-})];
+    }),
+];
 
 export const Loading = Template.bind({});
 Loading.args = {};
-Loading.decorators = [StoreDecorator({
-    profile: {
-        readonly: false,
-        isLoading: true,
-        data: {
-            first: 'name',
-            city: 'City',
-            age: 20,
-            avatar: 'static/assets/avatar.jpeg',
-            lastname: 'lastname',
-            currency: Currency.RUB,
-            country: Country.Russia,
+Loading.decorators = [
+    StoreDecorator({
+        profile: {
+            readonly: false,
+            isLoading: true,
+            data: {
+                first: 'name',
+                city: 'City',
+                age: 20,
+                avatar: 'static/assets/avatar.jpeg',
+                lastname: 'lastname',
+                currency: Currency.RUB,
+                country: Country.Russia,
+            },
         },
-    },
-})];
+    }),
+];

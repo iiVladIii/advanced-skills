@@ -6,31 +6,23 @@ import { Portal } from '../Portal/Portal';
 import cls from './Modal.module.scss';
 
 interface ModalProps {
-    className?: string,
-    children?: ReactNode,
-    isOpen?: boolean,
-    onClose?: () => void,
-    lazy?: boolean,
+    className?: string;
+    children?: ReactNode;
+    isOpen?: boolean;
+    onClose?: () => void;
+    lazy?: boolean;
 }
 
 const ANIMATION_DELAY = 200;
 
 export const Modal = (props: ModalProps) => {
-    const {
-        children,
-        className,
-        isOpen,
-        onClose,
-        lazy,
-    } = props;
+    const { children, className, isOpen, onClose, lazy } = props;
 
-    const { isClosing, isMounted, close } = useModal(
-        {
-            animationDelay: ANIMATION_DELAY,
-            onClose,
-            isOpen,
-        },
-    );
+    const { isClosing, isMounted, close } = useModal({
+        animationDelay: ANIMATION_DELAY,
+        onClose,
+        isOpen,
+    });
 
     const mods: Mods = {
         [cls.opened]: isOpen,
@@ -45,9 +37,7 @@ export const Modal = (props: ModalProps) => {
         <Portal>
             <div className={classNames(cls.Modal, mods, [className])}>
                 <Overlay onClick={close} />
-                <div className={cls.content}>
-                    {children}
-                </div>
+                <div className={cls.content}>{children}</div>
             </div>
         </Portal>
     );

@@ -12,7 +12,6 @@ export default {
         backgroundColor: { control: 'color' },
     },
     decorators: [StoreDecorator({})],
-
 } as ComponentMeta<typeof Navbar>;
 
 const Template: ComponentStory<typeof Navbar> = (args) => <Navbar {...args} />;

@@ -13,42 +13,41 @@ interface TabsProps<T> {
     className?: string;
     tabs: TabItem<T>[];
     value: T;
-    onTabClick: (tab: TabItem<T>) => void
+    onTabClick: (tab: TabItem<T>) => void;
 }
 
 export const Tabs = <T extends string>(props: TabsProps<T>) => {
-    const {
-        className,
-        tabs,
-        value,
-        onTabClick,
-    } = props;
+    const { className, tabs, value, onTabClick } = props;
 
-    const clickHandle = useCallback((tab: TabItem<T>) => () => {
-        onTabClick(tab);
-    }, [onTabClick]);
+    const clickHandle = useCallback(
+        (tab: TabItem<T>) => () => {
+            onTabClick(tab);
+        },
+        [onTabClick],
+    );
 
     const { t } = useTranslation();
 
-    const cards = useMemo(() => (
-        <>
-            {
-                tabs.map((tab) => (
+    const cards = useMemo(
+        () => (
+            <>
+                {tabs.map((tab) => (
                     <Card
-                        theme={tab.value === value ? CardTheme.NORMAL : CardTheme.OUTLINED}
+                        theme={
+                            tab.value === value
+                                ? CardTheme.NORMAL
+                                : CardTheme.OUTLINED
+                        }
                         className={cls.tab}
                         key={tab.value}
                         onClick={clickHandle(tab)}
                     >
                         {tab.content}
                     </Card>
-                ))
-            }
-        </>
-    ), [clickHandle, tabs, value]);
-    return (
-        <div className={classNames(cls.Tabs, {}, [className])}>
-            {cards}
-        </div>
+                ))}
+            </>
+        ),
+        [clickHandle, tabs, value],
     );
+    return <div className={classNames(cls.Tabs, {}, [className])}>{cards}</div>;
 };

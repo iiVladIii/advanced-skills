@@ -21,11 +21,15 @@ describe('getEditableProfileCardIsLoading.test', () => {
                 isLoading: true,
             },
         };
-        expect(getEditableProfileCardIsLoading(state as StateSchema)).toEqual(true);
+        expect(getEditableProfileCardIsLoading(state as StateSchema)).toEqual(
+            true,
+        );
     });
 
     test('work with empty state', () => {
         const state: DeepPartial<StateSchema> = {};
-        expect(getEditableProfileCardIsLoading(state as StateSchema)).toEqual(undefined);
+        expect(getEditableProfileCardIsLoading(state as StateSchema)).toEqual(
+            undefined,
+        );
     });
 });

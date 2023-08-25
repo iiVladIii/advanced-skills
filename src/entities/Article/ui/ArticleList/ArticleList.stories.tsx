@@ -1,9 +1,11 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ArticleBlockType, ArticleType, ArticleView } from '../../model/consts/articleConsts';
 import {
-    Article,
-} from '../../model/types/article';
+    ArticleBlockType,
+    ArticleType,
+    ArticleView,
+} from '../../model/consts/articleConsts';
+import { Article } from '../../model/types/article';
 import { ArticleList } from './ArticleList';
 
 export default {
@@ -14,7 +16,9 @@ export default {
     },
 } as ComponentMeta<typeof ArticleList>;
 
-const Template: ComponentStory<typeof ArticleList> = (args) => <ArticleList {...args} />;
+const Template: ComponentStory<typeof ArticleList> = (args) => (
+    <ArticleList {...args} />
+);
 
 const article: Article = {
     id: '1',
@@ -100,12 +104,10 @@ isLoadingBig.decorators = [];
 export const ListBig = Template.bind({});
 ListBig.args = {
     isLoading: false,
-    articles: new Array(9)
-        .fill(0)
-        .map((item, index) => ({
-            ...article,
-            id: String(index),
-        })),
+    articles: new Array(9).fill(0).map((item, index) => ({
+        ...article,
+        id: String(index),
+    })),
     view: ArticleView.BIG,
 };
 ListBig.decorators = [];
@@ -121,12 +123,10 @@ isLoadingSmall.decorators = [];
 export const ListSmall = Template.bind({});
 ListSmall.args = {
     isLoading: false,
-    articles: new Array(9)
-        .fill(0)
-        .map((item, index) => ({
-            ...article,
-            id: String(index),
-        })),
+    articles: new Array(9).fill(0).map((item, index) => ({
+        ...article,
+        id: String(index),
+    })),
     view: ArticleView.SMALL,
 };
 ListSmall.decorators = [];

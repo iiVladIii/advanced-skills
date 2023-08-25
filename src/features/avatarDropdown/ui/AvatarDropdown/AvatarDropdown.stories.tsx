@@ -11,14 +11,18 @@ export default {
     },
 } as ComponentMeta<typeof AvatarDropdown>;
 
-const Template: ComponentStory<typeof AvatarDropdown> = (args) => <AvatarDropdown {...args} />;
+const Template: ComponentStory<typeof AvatarDropdown> = (args) => (
+    <AvatarDropdown {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {};
-Normal.decorators = [StoreDecorator({
-    user: {
-        authData: {
-            avatar: 'static/assets/avatar.jpeg',
+Normal.decorators = [
+    StoreDecorator({
+        user: {
+            authData: {
+                avatar: 'static/assets/avatar.jpeg',
+            },
         },
-    },
-})];
+    }),
+];

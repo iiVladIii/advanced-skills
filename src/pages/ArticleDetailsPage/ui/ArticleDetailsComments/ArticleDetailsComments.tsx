@@ -11,7 +11,10 @@ import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitial
 import { Skeleton } from '@/shared/ui/Skeleton';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { getArticleComments } from '../../model/slice/articleDetailsCommentsSlice';
-import { getArticleCommentsError, getArticleCommentsIsLoading } from '../../model/selectors/comments';
+import {
+    getArticleCommentsError,
+    getArticleCommentsIsLoading,
+} from '../../model/selectors/comments';
 import { addCommentForArticle } from '../../model/services/addCommnetForArticle/addCommentForArticle';
 
 interface ArticleDetailsCommentsProps {
@@ -19,41 +22,35 @@ interface ArticleDetailsCommentsProps {
     id?: string;
 }
 
-export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) => {
-    const {
-        className,
-        id,
-    } = props;
-    const { t } = useTranslation();
+export const ArticleDetailsComments = memo(
+    (props: ArticleDetailsCommentsProps) => {
+        const { className, id } = props;
+        const { t } = useTranslation();
 
-    const dispatch = useAppDispatch();
-    const comments = useSelector(getArticleComments.selectAll);
-    const isLoading = useSelector(getArticleCommentsIsLoading);
-    const error = useSelector(getArticleCommentsError);
+        const dispatch = useAppDispatch();
+        const comments = useSelector(getArticleComments.selectAll);
+        const isLoading = useSelector(getArticleCommentsIsLoading);
+        const error = useSelector(getArticleCommentsError);
 
-    const onSendComment = useCallback((text: string) => {
-        dispatch(addCommentForArticle(text));
-    }, [dispatch]);
+        const onSendComment = useCallback(
+            (text: string) => {
+                dispatch(addCommentForArticle(text));
+            },
+            [dispatch],
+        );
 
-    useInitialEffect(() => {
-        dispatch(fetchCommentsByArticleId(id));
-    });
+        useInitialEffect(() => {
+            dispatch(fetchCommentsByArticleId(id));
+        });
 
-    return (
-        <VStack gap="8" className={classNames('', {}, [className])}>
-            <Text
-                size={TextSize.L}
-                title={t('Комментарии')}
-            />
-            <Suspense fallback={<Skeleton width={200} height={30} />}>
-                <AddCommentForm
-                    onSendComment={onSendComment}
-                />
-            </Suspense>
-            <CommentList
-                isLoading={isLoading}
-                comments={comments}
-            />
-        </VStack>
-    );
-});
+        return (
+            <VStack gap="8" className={classNames('', {}, [className])}>
+                <Text size={TextSize.L} title={t('Комментарии')} />
+                <Suspense fallback={<Skeleton width={200} height={30} />}>
+                    <AddCommentForm onSendComment={onSendComment} />
+                </Suspense>
+                <CommentList isLoading={isLoading} comments={comments} />
+            </VStack>
+        );
+    },
+);

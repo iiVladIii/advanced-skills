@@ -8,31 +8,39 @@ export default {
     component: LoginForm,
 } as ComponentMeta<typeof LoginForm>;
 
-const Template: ComponentStory<typeof LoginForm> = (args) => <LoginForm {...args} />;
+const Template: ComponentStory<typeof LoginForm> = (args) => (
+    <LoginForm {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {};
-Primary.decorators = [StoreDecorator({
-    loginForm: {
-        username: 'name',
-        password: 'pass',
-    },
-})];
+Primary.decorators = [
+    StoreDecorator({
+        loginForm: {
+            username: 'name',
+            password: 'pass',
+        },
+    }),
+];
 
 export const WithError = Template.bind({});
 WithError.args = {};
-WithError.decorators = [StoreDecorator({
-    loginForm: {
-        username: 'name',
-        password: 'pass',
-        error: 'Error',
-    },
-})];
+WithError.decorators = [
+    StoreDecorator({
+        loginForm: {
+            username: 'name',
+            password: 'pass',
+            error: 'Error',
+        },
+    }),
+];
 
 export const Loading = Template.bind({});
 Loading.args = {};
-Loading.decorators = [StoreDecorator({
-    loginForm: {
-        isLoading: true,
-    },
-})];
+Loading.decorators = [
+    StoreDecorator({
+        loginForm: {
+            isLoading: true,
+        },
+    }),
+];

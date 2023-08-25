@@ -1,5 +1,9 @@
 import {
-    MutableRefObject, useCallback, useEffect, useRef, useState,
+    MutableRefObject,
+    useCallback,
+    useEffect,
+    useRef,
+    useState,
 } from 'react';
 
 export interface UseModalProps {
@@ -16,15 +20,13 @@ export interface UseModalProps {
  */
 
 export const useModal = (props: UseModalProps) => {
-    const {
-        animationDelay,
-        onClose,
-        isOpen,
-    } = props;
+    const { animationDelay, onClose, isOpen } = props;
 
     const [isClosing, setIsClosing] = useState(false);
     const [isMounted, setIsMounted] = useState(false);
-    const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
+    const timerRef = useRef() as MutableRefObject<
+        ReturnType<typeof setTimeout>
+    >;
 
     useEffect(() => {
         if (isOpen) {
@@ -42,11 +44,14 @@ export const useModal = (props: UseModalProps) => {
         }
     }, [animationDelay, onClose]);
 
-    const onKeydown = useCallback((e: KeyboardEvent) => {
-        if (e.key === 'Escape') {
-            close();
-        }
-    }, [close]);
+    const onKeydown = useCallback(
+        (e: KeyboardEvent) => {
+            if (e.key === 'Escape') {
+                close();
+            }
+        },
+        [close],
+    );
 
     useEffect(() => {
         if (isOpen) {

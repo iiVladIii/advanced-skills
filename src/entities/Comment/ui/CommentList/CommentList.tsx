@@ -7,19 +7,14 @@ import { Comment } from '../../model/types/comment';
 import { CommentCard } from '../CommentCard/CommentCard';
 
 interface CommentListProps {
-    className?: string
+    className?: string;
     comments?: Comment[];
     isLoading?: boolean;
     error?: string;
 }
 
 export const CommentList = memo((props: CommentListProps) => {
-    const {
-        className,
-        comments,
-        isLoading,
-        error,
-    } = props;
+    const { className, comments, isLoading, error } = props;
 
     const { t } = useTranslation();
 
@@ -36,15 +31,17 @@ export const CommentList = memo((props: CommentListProps) => {
 
     return (
         <VStack gap="16" max className={classNames('', {}, [className])}>
-            {comments?.length
-                ? comments.map((comment) => (
+            {comments?.length ? (
+                comments.map((comment) => (
                     <CommentCard
                         isLoading={isLoading}
                         key={comment.id}
                         comment={comment}
                     />
                 ))
-                : <Text text={t('Комментарии отсутствуют')} />}
+            ) : (
+                <Text text={t('Комментарии отсутствуют')} />
+            )}
         </VStack>
     );
 });

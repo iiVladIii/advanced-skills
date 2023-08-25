@@ -3,7 +3,10 @@ import { memo } from 'react';
 import { useParams } from 'react-router-dom';
 import { ArticleDetails } from '@/entities/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+    DynamicModuleLoader,
+    ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { Page } from '@/widgets/Page';
 import { VStack } from '@/shared/ui/Stack';
 import { ArticleRecommendationsList } from '@/features/articleRecommendationsList';
@@ -24,27 +27,27 @@ const reducers: ReducersList = {
 };
 
 const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
-    const {
-        className,
-    } = props;
+    const { className } = props;
     const { t } = useTranslation('article-details');
 
     const { id } = useParams<{ id: string }>();
 
     if (!id) {
-        return (
-            null
-        );
+        return null;
     }
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+            <Page
+                className={classNames(cls.ArticleDetailsPage, {}, [className])}
+            >
                 <VStack gap="16">
                     <ArticleDetailsPageHeader />
                     <ArticleDetails id={id} />
                     <ArticleRating articleId={id} />
-                    <ArticleRecommendationsList className={cls.recommendations} />
+                    <ArticleRecommendationsList
+                        className={cls.recommendations}
+                    />
                     <ArticleDetailsComments id={id} />
                 </VStack>
             </Page>

@@ -9,11 +9,12 @@ import { Card } from '@/shared/ui/Card';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Button } from '@/shared/ui/Button';
 import { AppLink } from '@/shared/ui/AppLink';
-import { ArticleBlockType, ArticleView } from '../../model/consts/articleConsts';
-import cls from './ArticleListItem.module.scss';
 import {
-    Article, ArticleTextBlock,
-} from '../../model/types/article';
+    ArticleBlockType,
+    ArticleView,
+} from '../../model/consts/articleConsts';
+import cls from './ArticleListItem.module.scss';
+import { Article, ArticleTextBlock } from '../../model/types/article';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { getRouteArticleDetails } from '@/shared/const/router';
 import { AppImage } from '@/shared/ui/AppImage';
@@ -21,18 +22,13 @@ import { Skeleton } from '@/shared/ui/Skeleton';
 
 interface ArticleListItemProps {
     className?: string;
-    article:Article;
+    article: Article;
     view: ArticleView;
     target?: HTMLAttributeAnchorTarget;
 }
 
 export const ArticleListItem = memo((props: ArticleListItemProps) => {
-    const {
-        className,
-        article,
-        view,
-        target,
-    } = props;
+    const { className, article, view, target } = props;
     const { t } = useTranslation('articles');
 
     const navigate = useNavigate();
@@ -46,17 +42,25 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     );
 
     if (view === ArticleView.BIG) {
-        const textBlocks = article.blocks.find((block) => block.type === ArticleBlockType.TEXT) as ArticleTextBlock;
+        const textBlocks = article.blocks.find(
+            (block) => block.type === ArticleBlockType.TEXT,
+        ) as ArticleTextBlock;
 
         return (
             <div
                 data-testid="ArticleListItem"
-                className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
+                className={classNames(cls.ArticleListItem, {}, [
+                    className,
+                    cls[view],
+                ])}
             >
                 <Card className={cls.card}>
                     <div className={cls.header}>
                         <Avatar src={article.user.avatar} size={30} />
-                        <Text text={article.user.username} className={cls.username} />
+                        <Text
+                            text={article.user.username}
+                            className={cls.username}
+                        />
                         <Text text={article.createdAt} className={cls.date} />
                     </div>
                     <Text title={article.title} className={cls.title} />
@@ -68,16 +72,17 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                         className={cls.img}
                     />
                     {textBlocks && (
-                        <ArticleTextBlockComponent block={textBlocks} className={cls.textBlock} />
+                        <ArticleTextBlockComponent
+                            block={textBlocks}
+                            className={cls.textBlock}
+                        />
                     )}
                     <div className={cls.footer}>
                         <AppLink
                             target={target}
                             to={getRouteArticleDetails(article.id)}
                         >
-                            <Button>
-                                {t('Читать далее...')}
-                            </Button>
+                            <Button>{t('Читать далее...')}</Button>
                         </AppLink>
                         {views}
                     </div>
@@ -90,7 +95,10 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
             data-testid="ArticleListItem"
             target={target}
             to={getRouteArticleDetails(article.id)}
-            className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
+            className={classNames(cls.ArticleListItem, {}, [
+                className,
+                cls[view],
+            ])}
         >
             <Card className={cls.card}>
                 <div className={cls.imageWrapper}>

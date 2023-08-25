@@ -7,33 +7,26 @@ import cls from './ArticleRecommendationsList.module.scss';
 import { useArticleRecommendationsList } from '../../api/articleRecommendationsApi';
 
 interface ArticleRecommendationsListProps {
-    className?: string
+    className?: string;
 }
 
-export const ArticleRecommendationsList = memo((props: ArticleRecommendationsListProps) => {
-    const {
-        className,
-    } = props;
-    const { t } = useTranslation();
+export const ArticleRecommendationsList = memo(
+    (props: ArticleRecommendationsListProps) => {
+        const { className } = props;
+        const { t } = useTranslation();
 
-    const { data: articles, isLoading } = useArticleRecommendationsList(4);
+        const { data: articles, isLoading } = useArticleRecommendationsList(4);
 
-    return (
-        <VStack
-            gap="8"
-            max
-            data-testid="ArticleRecommendationsList"
-        >
-            <Text
-                size={TextSize.L}
-                title={t('Рекомендуем')}
-            />
-            <ArticleList
-                className={cls.recommendations}
-                articles={articles ?? []}
-                isLoading={isLoading}
-                target="_blank"
-            />
-        </VStack>
-    );
-});
+        return (
+            <VStack gap="8" max data-testid="ArticleRecommendationsList">
+                <Text size={TextSize.L} title={t('Рекомендуем')} />
+                <ArticleList
+                    className={cls.recommendations}
+                    articles={articles ?? []}
+                    isLoading={isLoading}
+                    target="_blank"
+                />
+            </VStack>
+        );
+    },
+);

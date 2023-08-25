@@ -27,14 +27,15 @@ export default {
     },
 } as ComponentMeta<typeof ProfilePage>;
 
-const Template: ComponentStory<typeof ProfilePage> = (args) => <ProfilePage {...args} />;
+const Template: ComponentStory<typeof ProfilePage> = (args) => (
+    <ProfilePage {...args} />
+);
 
 export const Light = Template.bind({});
 Light.args = {};
-Light.parameters = {
-
-};
-Light.decorators = [ThemeDecorator(Theme.LIGHT),
+Light.parameters = {};
+Light.decorators = [
+    ThemeDecorator(Theme.LIGHT),
     StoreDecorator({
         profile: {
             readonly: true,
@@ -48,12 +49,13 @@ Light.decorators = [ThemeDecorator(Theme.LIGHT),
                 country: Country.Russia,
             },
         },
-    })];
+    }),
+];
 
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [StoreDecorator(
-    {
+Dark.decorators = [
+    StoreDecorator({
         profile: {
             readonly: false,
             form: {
@@ -66,5 +68,5 @@ Dark.decorators = [StoreDecorator(
                 country: Country.Russia,
             },
         },
-    },
-)];
+    }),
+];

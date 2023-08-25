@@ -5,7 +5,7 @@ import cls from './Text.module.scss';
 export enum TextTheme {
     PRIMARY = 'primary',
     ERROR = 'error',
-    INVERTED = 'inverted'
+    INVERTED = 'inverted',
 }
 
 export enum TextAlign {
@@ -31,7 +31,7 @@ interface TextProps {
     'data-testid'?: string;
 }
 
-type HeaderTagType = 'h1'| 'h2' | 'h3';
+type HeaderTagType = 'h1' | 'h2' | 'h3';
 
 const mapSizeToHeaderTag: Record<TextSize, HeaderTagType> = {
     [TextSize.S]: 'h3',
@@ -53,7 +53,14 @@ export const Text = memo((props: TextProps) => {
     const HeaderTag = mapSizeToHeaderTag[size];
 
     return (
-        <div className={classNames(cls.Text, {}, [className, cls[theme], cls[align], cls[size]])}>
+        <div
+            className={classNames(cls.Text, {}, [
+                className,
+                cls[theme],
+                cls[align],
+                cls[size],
+            ])}
+        >
             {title && (
                 <HeaderTag
                     data-testid={`${dataTestId}.Header`}
@@ -63,10 +70,7 @@ export const Text = memo((props: TextProps) => {
                 </HeaderTag>
             )}
             {text && (
-                <p
-                    data-testid={`${dataTestId}.Paragraph`}
-                    className={cls.text}
-                >
+                <p data-testid={`${dataTestId}.Paragraph`} className={cls.text}>
                     {text}
                 </p>
             )}

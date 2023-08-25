@@ -1,8 +1,9 @@
-import {
-    memo, ReactNode, useCallback, useEffect,
-} from 'react';
+import { memo, ReactNode, useCallback, useEffect } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AnimationProvider, useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
+import {
+    AnimationProvider,
+    useAnimationLibs,
+} from '@/shared/lib/components/AnimationProvider';
 import { Portal } from '../Portal/Portal';
 import cls from './Drawer.module.scss';
 import { Overlay } from '../Overlay/Overlay';
@@ -11,19 +12,13 @@ interface DrawerProps {
     className?: string;
     children: ReactNode;
     isOpen?: boolean;
-    onClose?: ()=>void;
+    onClose?: () => void;
     lazy?: boolean;
 }
 
 const height = window.innerHeight - 100;
 export const DrawerContent = memo((props: DrawerProps) => {
-    const {
-        className,
-        children,
-        onClose,
-        isOpen,
-        lazy,
-    } = props;
+    const { className, children, onClose, isOpen, lazy } = props;
 
     const { Gesture, Spring } = useAnimationLibs();
 
@@ -88,7 +83,11 @@ export const DrawerContent = memo((props: DrawerProps) => {
                 <Overlay onClick={() => closeDrawer()} />
                 <Spring.a.div
                     className={cls.sheet}
-                    style={{ display, bottom: `calc(-100vh + ${height - 100}px)`, y }}
+                    style={{
+                        display,
+                        bottom: `calc(-100vh + ${height - 100}px)`,
+                        y,
+                    }}
                     {...bind()}
                 >
                     {children}
@@ -104,9 +103,7 @@ const DrawerAsync = (props: DrawerProps) => {
     if (!isLoaded) {
         return null;
     }
-    return (
-        <DrawerContent {...props} />
-    );
+    return <DrawerContent {...props} />;
 };
 
 export const Drawer = (props: DrawerProps) => (

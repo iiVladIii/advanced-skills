@@ -16,15 +16,16 @@ interface ArticleListProps {
     target?: HTMLAttributeAnchorTarget;
 }
 
-const getSkeletons = (view:ArticleView) => new Array(view === ArticleView.SMALL ? 9 : 3)
-    .fill(0)
-    .map((item, index) => (
-        <ArticleListItemSkeleton
-            key={index}
-            view={view}
-            className={cls.card}
-        />
-    ));
+const getSkeletons = (view: ArticleView) =>
+    new Array(view === ArticleView.SMALL ? 9 : 3)
+        .fill(0)
+        .map((item, index) => (
+            <ArticleListItemSkeleton
+                key={index}
+                view={view}
+                className={cls.card}
+            />
+        ));
 
 export const ArticleList = memo((props: ArticleListProps) => {
     const {
@@ -48,7 +49,12 @@ export const ArticleList = memo((props: ArticleListProps) => {
 
     if (!isLoading && !articles.length) {
         return (
-            <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+            <div
+                className={classNames(cls.ArticleList, {}, [
+                    className,
+                    cls[view],
+                ])}
+            >
                 <Text size={TextSize.L} title={t('Стать не найдены')} />
             </div>
         );
@@ -59,10 +65,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
             data-testid="ArticleList"
             className={classNames(cls.ArticleList, {}, [className, cls[view]])}
         >
-            {articles.length
-                ? articles.map(renderArticle)
-
-                : null}
+            {articles.length ? articles.map(renderArticle) : null}
             {isLoading && getSkeletons(view)}
         </div>
     );

@@ -5,13 +5,11 @@ import { Page } from '@/widgets/Page';
 import cls from './ForbiddenPage.module.scss';
 
 interface ForbiddenPageProps {
-    className?: string
+    className?: string;
 }
 
 const ForbiddenPage = memo((props: ForbiddenPageProps) => {
-    const {
-        className,
-    } = props;
+    const { className } = props;
     const { t } = useTranslation();
 
     return (

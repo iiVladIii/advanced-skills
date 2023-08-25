@@ -12,13 +12,11 @@ import {
 } from '../../model/selectors/articlesPageSelectors';
 
 interface ArticleInfiniteListProps {
-    className?: string
+    className?: string;
 }
 
 export const ArticleInfiniteList = memo((props: ArticleInfiniteListProps) => {
-    const {
-        className,
-    } = props;
+    const { className } = props;
     const dispatch = useAppDispatch();
     const { t } = useTranslation();
 
@@ -30,7 +28,10 @@ export const ArticleInfiniteList = memo((props: ArticleInfiniteListProps) => {
 
     if (error) {
         return (
-            <Text title={t('Возникла ошибка при загрузке статей')} theme={TextTheme.ERROR} />
+            <Text
+                title={t('Возникла ошибка при загрузке статей')}
+                theme={TextTheme.ERROR}
+            />
         );
     }
     return (

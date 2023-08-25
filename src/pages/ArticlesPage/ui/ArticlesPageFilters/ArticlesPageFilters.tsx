@@ -15,8 +15,10 @@ import { ArticleTypeTabs } from '@/features/articleTypeTabs';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import { articlesPageActions } from '../../model/slice/articlesPageSlice';
 import {
-    getArticlesPageOrder, getArticlesPageSearch,
-    getArticlesPageSort, getArticlesPageType,
+    getArticlesPageOrder,
+    getArticlesPageSearch,
+    getArticlesPageSort,
+    getArticlesPageType,
     getArticlesPageView,
 } from '../../model/selectors/articlesPageSelectors';
 import cls from './ArticlesPageFilters.module.scss';
@@ -26,9 +28,7 @@ interface ArticlesPageFiltersProps {
 }
 
 export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
-    const {
-        className,
-    } = props;
+    const { className } = props;
     const { t } = useTranslation('articles');
 
     const dispatch = useAppDispatch();
@@ -46,34 +46,49 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
 
     const debouncedFetchData = useDebounce(fetchData, 500);
 
-    const onChangeView = useCallback((view: ArticleView) => {
-        dispatch(articlesPageActions.setView(view));
-        dispatch(articlesPageActions.setPage(1));
-    }, [dispatch]);
+    const onChangeView = useCallback(
+        (view: ArticleView) => {
+            dispatch(articlesPageActions.setView(view));
+            dispatch(articlesPageActions.setPage(1));
+        },
+        [dispatch],
+    );
 
-    const onChangeSort = useCallback((sort: ArticleSortField) => {
-        dispatch(articlesPageActions.setSort(sort));
-        dispatch(articlesPageActions.setPage(1));
-        fetchData();
-    }, [dispatch, fetchData]);
+    const onChangeSort = useCallback(
+        (sort: ArticleSortField) => {
+            dispatch(articlesPageActions.setSort(sort));
+            dispatch(articlesPageActions.setPage(1));
+            fetchData();
+        },
+        [dispatch, fetchData],
+    );
 
-    const onChangeOrder = useCallback((order: SortOrder) => {
-        dispatch(articlesPageActions.setOrder(order));
-        dispatch(articlesPageActions.setPage(1));
-        fetchData();
-    }, [dispatch, fetchData]);
+    const onChangeOrder = useCallback(
+        (order: SortOrder) => {
+            dispatch(articlesPageActions.setOrder(order));
+            dispatch(articlesPageActions.setPage(1));
+            fetchData();
+        },
+        [dispatch, fetchData],
+    );
 
-    const onChangeSearch = useCallback((value: string) => {
-        dispatch(articlesPageActions.setSearch(value));
-        dispatch(articlesPageActions.setPage(1));
-        debouncedFetchData();
-    }, [debouncedFetchData, dispatch]);
+    const onChangeSearch = useCallback(
+        (value: string) => {
+            dispatch(articlesPageActions.setSearch(value));
+            dispatch(articlesPageActions.setPage(1));
+            debouncedFetchData();
+        },
+        [debouncedFetchData, dispatch],
+    );
 
-    const onChangeTab = useCallback((tab: TabItem<ArticleType>) => {
-        dispatch(articlesPageActions.setType(tab.value));
-        dispatch(articlesPageActions.setPage(1));
-        fetchData();
-    }, [dispatch, fetchData]);
+    const onChangeTab = useCallback(
+        (tab: TabItem<ArticleType>) => {
+            dispatch(articlesPageActions.setType(tab.value));
+            dispatch(articlesPageActions.setPage(1));
+            fetchData();
+        },
+        [dispatch, fetchData],
+    );
 
     return (
         <div className={classNames(cls.ArticlesPageFilters, {}, [className])}>
@@ -84,10 +99,7 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
                     onChangeSort={onChangeSort}
                     onChangeOrder={onChangeOrder}
                 />
-                <ArticleViewSelector
-                    view={view}
-                    onViewClick={onChangeView}
-                />
+                <ArticleViewSelector view={view} onViewClick={onChangeView} />
             </div>
             <Card className={cls.search}>
                 <Input
