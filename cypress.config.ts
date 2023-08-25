@@ -11,4 +11,11 @@ export default defineConfig({
         env: process.env,
         baseUrl: process.env.DEV_URL,
     },
+
+    component: {
+        devServer: {
+            framework: 'react',
+            bundler: 'webpack',
+        },
+    },
 });
