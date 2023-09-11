@@ -65,6 +65,7 @@ module.exports = {
                     'role',
                     'as',
                     'borderRadius',
+                    'feature',
                 ],
             },
         ],
