@@ -20,6 +20,7 @@ const ThemeProvider: FC<ThemeProviderProps> = (props) => {
     useEffect(() => {
         if (!isThemeInited && defaultTheme) {
             setTheme(defaultTheme);
+            document.body.className = defaultTheme;
             setThemeInited(true);
         }
     }, [defaultTheme, isThemeInited]);
