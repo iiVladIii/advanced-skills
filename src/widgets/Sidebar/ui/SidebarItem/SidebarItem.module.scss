@@ -6,6 +6,7 @@
 .link {
     margin-left: 10px;
     opacity: 1;
+    max-width: 100%;
 }
 
 .icon {
@@ -17,5 +18,51 @@
         opacity: 0;
         transition: 0.2s opacity;
         width: 0;
+    }
+}
+
+.itemRedesigned {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0 16px;
+}
+
+.active {
+    background:
+        linear-gradient(
+            89.97deg,
+            rgb(94 211 243 / 30%) 1.15%,
+            rgb(94 211 243 / 0%) 99.97%
+        );
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        width: 2px;
+        left: 0;
+        background: var(--accent-redesigned);
+        height: 100%;
+    }
+}
+
+.linkRedesigned {
+    margin-left: 10px;
+    opacity: 1;
+    transition: opacity 0.2s;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 100%;
+}
+
+.collapsedRedesigned {
+    padding: 0 8px;
+
+    .linkRedesigned {
+        max-width: 0;
+        margin: 0;
+        width: 0;
+        opacity: 0;
     }
 }
