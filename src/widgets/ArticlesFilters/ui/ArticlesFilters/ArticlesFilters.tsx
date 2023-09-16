@@ -10,6 +10,8 @@ import { getVStack } from '@/shared/ui/redesigned/Stack';
 import { ArticleSortField, ArticleType } from '@/entities/Article';
 import { SortOrder } from '@/shared/types/sort';
 import { TabItem } from '@/shared/ui/deprecated/Tabs';
+import SearchIcon from '@/shared/assets/icons/search.svg';
+import { Icon } from '@/shared/ui/redesigned/Icon';
 
 interface ArticlesFiltersProps {
     className?: string;
@@ -46,6 +48,7 @@ export const ArticlesFilters = memo((props: ArticlesFiltersProps) => {
             padding="24"
         >
             <Input
+                addonLeft={<Icon Svg={SearchIcon} />}
                 value={search}
                 onChange={onChangeSearch}
                 placeholder={t('Поиск')}
