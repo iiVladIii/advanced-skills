@@ -5,7 +5,7 @@ import { AppLink, AppLinkTheme } from './AppLink';
 import { Theme } from '@/shared/const/theme';
 
 export default {
-    title: 'shared/AppLink',
+    title: 'shared/deprecated/AppLink',
     component: AppLink,
     argTypes: {
         backgroundColor: { control: 'color' },

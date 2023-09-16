@@ -1,10 +1,10 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { AppImage } from './AppImage';
-import { Skeleton } from '../Skeleton';
+import { Skeleton } from '../../deprecated/Skeleton';
 
 export default {
-    title: 'shared/AppImage',
+    title: 'shared/redesigned/AppImage',
     component: AppImage,
     argTypes: {
         backgroundColor: { control: 'color' },

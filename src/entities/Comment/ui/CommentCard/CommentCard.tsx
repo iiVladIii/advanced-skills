@@ -7,7 +7,7 @@ import { AppLink } from '@/shared/ui/deprecated/AppLink';
 import { Comment } from '../../model/types/comment';
 import cls from './CommentCard.module.scss';
 import { getRouteProfile } from '@/shared/const/router';
-import { VStack } from '@/shared/ui/deprecated/Stack';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 
 interface CommentCardProps {
     className?: string;

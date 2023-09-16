@@ -1,17 +1,17 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Overlay } from './Overlay';
+import { Popover } from './Popover';
 
 export default {
-    title: 'shared/Overlay',
-    component: Overlay,
+    title: 'shared/redesigned/Popups/Popover',
+    component: Popover,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-} as ComponentMeta<typeof Overlay>;
+} as ComponentMeta<typeof Popover>;
 
-const Template: ComponentStory<typeof Overlay> = (args) => (
-    <Overlay {...args} />
+const Template: ComponentStory<typeof Popover> = (args) => (
+    <Popover {...args} />
 );
 
 export const Normal = Template.bind({});

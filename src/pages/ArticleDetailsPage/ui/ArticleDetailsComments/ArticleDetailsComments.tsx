@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { memo, useCallback, Suspense } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { VStack } from '@/shared/ui/deprecated/Stack';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Text, TextSize } from '@/shared/ui/deprecated/Text';
 import { AddCommentForm } from '@/features/addNewComment';
 import { CommentList } from '@/entities/Comment';

@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { Text, TextSize } from '@/shared/ui/deprecated/Text';
 import { ArticleList } from '@/entities/Article';
-import { VStack } from '@/shared/ui/deprecated/Stack';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 import cls from './ArticleRecommendationsList.module.scss';
 import { useArticleRecommendationsList } from '../../api/articleRecommendationsApi';
 

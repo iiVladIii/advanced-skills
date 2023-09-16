@@ -11,7 +11,7 @@ import {
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { VStack } from '@/shared/ui/deprecated/Stack';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 import { ProfileCard } from '@/entities/Profile';
 import { ValidateProfileError } from '../model/consts/consts';
 import { ProfileCardHeader } from './ProfileCardHeader/ProfileCardHeader';
