@@ -1,4 +1,4 @@
-import { Fragment, ReactNode } from 'react';
+import { Fragment, ReactNode, useMemo } from 'react';
 import { Listbox as HListBox } from '@headlessui/react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { HStack } from '../../../../redesigned/Stack';
@@ -8,24 +8,24 @@ import clsPopup from '../../styles/popup.module.scss';
 import { DropDownDirection } from '../../../../../types/ui';
 import { mapDirectionClass } from '../../styles/consts';
 
-export interface ListBoxItem {
-    value: string;
+export interface ListBoxItem<T extends string> {
+    value: T;
     content: ReactNode;
     disabled?: boolean;
 }
 
-interface ListBoxProps {
-    items?: ListBoxItem[];
+interface ListBoxProps<T extends string> {
+    items?: ListBoxItem<T>[];
     className?: string;
-    value?: string;
+    value?: T;
     defaultValue?: string;
-    onChange: <T extends string>(value: T) => void;
+    onChange: (value: T) => void;
     readonly?: boolean;
     direction?: DropDownDirection;
     label?: string;
 }
 
-export function ListBox(props: ListBoxProps) {
+export function ListBox<T extends string>(props: ListBoxProps<T>) {
     const {
         items,
         className,
@@ -39,6 +39,10 @@ export function ListBox(props: ListBoxProps) {
 
     const optionClasses = [mapDirectionClass[direction], clsPopup.menu];
 
+    const selectedItem = useMemo(
+        () => items?.find((item) => item.value === value),
+        [items, value],
+    );
     return (
         <HStack gap="8">
             {label && (
@@ -61,7 +65,9 @@ export function ListBox(props: ListBoxProps) {
                     // disabled={readonly}
                     className={clsPopup.trigger}
                 >
-                    <Button disabled={readonly}>{value ?? defaultValue}</Button>
+                    <Button variant="filled" disabled={readonly}>
+                        {selectedItem?.content ?? defaultValue}
+                    </Button>
                 </HListBox.Button>
                 <HListBox.Options
                     className={classNames(cls.options, {}, optionClasses)}
@@ -78,9 +84,10 @@ export function ListBox(props: ListBoxProps) {
                                     className={classNames(cls.item, {
                                         [clsPopup.active]: active,
                                         [clsPopup.disabled]: item.disabled,
+                                        [clsPopup.selected]: selected,
                                     })}
                                 >
-                                    {selected && '!!!'}
+                                    {selected}
                                     {item.content}
                                 </li>
                             )}
