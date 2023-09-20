@@ -42,10 +42,12 @@ export const getStackClasses = ({
     align = 'center',
     gap,
     direction,
+    max = false,
 }: GetStackClassesOptions) => [
     cls.Flex,
     justifyClasses[justify],
     alignClasses[align],
     directionClasses[direction],
     gap && gapClasses[gap],
+    max && cls.max,
 ];

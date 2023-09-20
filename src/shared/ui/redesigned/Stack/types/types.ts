@@ -7,4 +7,5 @@ export interface StackOptions {
     justify?: FlexJustify;
     align?: FlexAlign;
     gap?: FlexGap;
+    max?: boolean;
 }
