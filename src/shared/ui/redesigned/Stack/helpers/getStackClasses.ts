@@ -4,6 +4,7 @@ import {
     FlexDirection,
     FlexGap,
     FlexJustify,
+    FlexWrap,
     StackOptions,
 } from '../types/types';
 
@@ -25,6 +26,11 @@ export const directionClasses: Record<FlexDirection, string> = {
     column: cls.directionColumn,
 };
 
+export const wrapClasses: Record<FlexWrap, string> = {
+    wrap: cls.wrap,
+    nowrap: cls.nowrap,
+};
+
 export const gapClasses: Record<FlexGap, string> = {
     4: cls.gap4,
     8: cls.gap8,
@@ -42,12 +48,14 @@ export const getStackClasses = ({
     align = 'center',
     gap,
     direction,
+    wrap = 'nowrap',
     max = false,
 }: GetStackClassesOptions) => [
     cls.Flex,
     justifyClasses[justify],
     alignClasses[align],
     directionClasses[direction],
+    wrapClasses[wrap],
     gap && gapClasses[gap],
     max && cls.max,
 ];
