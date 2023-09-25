@@ -26,6 +26,7 @@ import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLo
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { getVStack } from '@/shared/ui/redesigned/Stack';
+import { useForceUpdate } from '@/shared/lib/render/forceUpdate';
 
 export interface LoginFormProps {
     className?: string;
@@ -46,6 +47,8 @@ const LoginForm = memo((props: LoginFormProps) => {
     const isLoading = useSelector(getLoginIsLoading);
     const error = useSelector(getLoginError);
 
+    const forceUpdate = useForceUpdate();
+
     const onChangeUsername = useCallback(
         (value: string) => {
             dispatch(loginActions.setUsername(value));
@@ -62,10 +65,11 @@ const LoginForm = memo((props: LoginFormProps) => {
 
     const onLoginClick = useCallback(async () => {
         const result = await dispatch(loginByUsername({ username, password }));
-        if (result.meta.requestStatus === 'fulfilled' && onSuccess) {
-            onSuccess();
+        if (result.meta.requestStatus === 'fulfilled') {
+            onSuccess?.();
+            forceUpdate();
         }
-    }, [dispatch, username, password, onSuccess]);
+    }, [dispatch, username, password, onSuccess, forceUpdate]);
 
     return (
         <DynamicModuleLoader reducers={initialReducers}>

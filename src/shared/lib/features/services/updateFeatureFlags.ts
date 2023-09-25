@@ -16,14 +16,15 @@ export const updateFeatureFlag = createAsyncThunk<
 >('user/saveJsonSettings', async ({ newFeatures, userId }, thunkAPI) => {
     const { dispatch, rejectWithValue } = thunkAPI;
 
+    const allFeatures = {
+        ...getAllFeatureFlags(),
+        ...newFeatures,
+    };
     try {
         await dispatch(
             updateFeatureFlagsMutation({
                 userId,
-                features: {
-                    ...getAllFeatureFlags(),
-                    ...newFeatures,
-                },
+                features: allFeatures,
             }),
         );
 

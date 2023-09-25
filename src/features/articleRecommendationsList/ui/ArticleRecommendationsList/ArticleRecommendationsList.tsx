@@ -32,10 +32,10 @@ export const ArticleRecommendationsList = memo(
                     }
                 />
                 <ArticleList
-                    className={cls.recommendations}
                     articles={articles ?? []}
                     isLoading={isLoading}
                     target="_blank"
+                    className={cls.recommendations}
                 />
             </VStack>
         );

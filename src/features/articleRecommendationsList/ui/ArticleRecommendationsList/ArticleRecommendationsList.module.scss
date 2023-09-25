@@ -1,6 +1,7 @@
 .recommendations {
     width: 100%;
+    flex-wrap: wrap;
     overflow-x: auto;
     overflow-y: hidden;
-    flex-wrap: nowrap;
+    justify-content: center;
 }
