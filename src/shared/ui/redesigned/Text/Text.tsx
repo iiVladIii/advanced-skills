@@ -47,8 +47,8 @@ export const Text = memo((props: TextProps) => {
             className={classNames(cls.Text, { [cls.bold]: bold }, [
                 className,
                 cls[align],
-                cls[size],
                 cls[variant],
+                cls[size],
             ])}
         >
             {title && (

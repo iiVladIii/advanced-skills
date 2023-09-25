@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Code } from './Code';
 
 export default {
-    title: 'shared/deprecated/Code',
+    title: 'shared/redesigned/Code',
     component: Code,
     argTypes: {
         backgroundColor: { control: 'color' },
