@@ -1,4 +1,8 @@
 .BIG {
+    .views {
+        margin-left: auto;
+    }
+
     .header {
         display: flex;
         align-items: center;
@@ -17,10 +21,10 @@
     }
 
     .img {
-        width: calc(100% - 32px);
+        width: 100%;
         max-height: 250px;
         object-fit: cover;
-        margin: 16px;
+        margin: 16px 0;
     }
 
     .footer {
@@ -29,15 +33,9 @@
         margin-top: 16px;
     }
 
-    .views {
-        margin-left: auto;
-    }
-
     .textBlock {
         max-height: 200px;
         overflow-y: hidden;
-        margin-top: 16px;
-        text-overflow: ellipsis;
     }
 }
 
@@ -75,9 +73,9 @@
     }
 
     .infoWrapper {
-        margin-top: 8px;
         display: flex;
         align-items: center;
+        margin-top: 8px;
     }
 
     .types p {
@@ -110,7 +108,9 @@
     }
 
     &.SMALL {
-        width: 240px;
-        height: 350px;
+        .card {
+            height: 350px;
+            width: 240px;
+        }
     }
 }
