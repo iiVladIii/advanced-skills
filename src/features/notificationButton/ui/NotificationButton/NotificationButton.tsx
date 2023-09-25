@@ -9,7 +9,7 @@ import NotificationIconDeprecated from '@/shared/assets/icons/notification-20-20
 import NotificationIcon from '@/shared/assets/icons/notification.svg';
 import { NotificationList } from '@/entities/Notification';
 import { Popover as PopoverDeprecated } from '@/shared/ui/deprecated/Popups';
-import { Drawer } from '@/shared/ui/deprecated/Drawer';
+import { Drawer } from '@/shared/ui/redesigned/Drawer';
 import { useDeviceDetect } from '@/shared/lib/hooks/useDeviceDetect/useDeviceDetect';
 import cls from './NotificationButton.module.scss';
 import { ToggleFeatures } from '@/shared/lib/features';
@@ -84,7 +84,7 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
                 <>
                     {trigger}
                     <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
-                        <NotificationList className={cls.notifications} />
+                        <NotificationList className={cls.notificationsMobile} />
                     </Drawer>
                 </>
             )}

@@ -4,9 +4,10 @@ import {
     AnimationProvider,
     useAnimationLibs,
 } from '@/shared/lib/components/AnimationProvider';
-import { Portal } from '../../redesigned/Portal/Portal';
+import { Portal } from '../Portal/Portal';
 import cls from './Drawer.module.scss';
-import { Overlay } from '../../redesigned/Overlay/Overlay';
+import { Overlay } from '../Overlay/Overlay';
+import { toggleFeatures } from '@/shared/lib/features';
 
 interface DrawerProps {
     className?: string;
@@ -78,8 +79,17 @@ export const DrawerContent = memo((props: DrawerProps) => {
         return null;
     }
     return (
-        <Portal>
-            <div className={classNames(cls.Drawer, {}, [className])}>
+        <Portal element={document.getElementById('app') ?? document.body}>
+            <div
+                className={classNames(cls.Drawer, {}, [
+                    className,
+                    toggleFeatures({
+                        name: 'isAppRedesigned',
+                        on: () => cls.drawerNew,
+                        off: () => cls.drawerOld,
+                    }),
+                ])}
+            >
                 <Overlay onClick={() => closeDrawer()} />
                 <Spring.a.div
                     className={cls.sheet}
@@ -106,10 +116,6 @@ const DrawerAsync = (props: DrawerProps) => {
     return <DrawerContent {...props} />;
 };
 
-/**
- * Устарел, используем новые компоненты из папки redesigned
- * @deprecated
- */
 export const Drawer = (props: DrawerProps) => (
     <AnimationProvider>
         <DrawerAsync {...props} />
