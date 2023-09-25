@@ -39,5 +39,10 @@
     "Ваш отзыв": "Your feedback",
     "Закрыть": "Close",
     "Спасибо за оценку!": "Thanks for the rating!",
-    "Настройки": "Settings"
+    "Настройки": "Settings",
+
+    "Редактировать": "Edit",
+    "{{count}} просмотров_zero": "{{count}} views",
+    "{{count}} просмотров_one": "{{count}} view",
+    "{{count}} просмотров_other": "{{count}} views"
 }
