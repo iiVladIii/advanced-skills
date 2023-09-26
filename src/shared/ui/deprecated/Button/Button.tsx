@@ -1,4 +1,9 @@
-import { ButtonHTMLAttributes, memo, ReactNode } from 'react';
+import {
+    ButtonHTMLAttributes,
+    ForwardedRef,
+    forwardRef,
+    ReactNode,
+} from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
 
@@ -49,35 +54,38 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
  * Устарел, используем новые компоненты из папки redesigned
  * @deprecated
  */
-export const Button = memo((props: ButtonProps) => {
-    const {
-        className,
-        theme = ButtonTheme.OUTLINE,
-        children,
-        square,
-        size = ButtonSize.M,
-        disabled,
-        fullWidth,
-        ...otherProps
-    } = props;
+export const Button = forwardRef(
+    (props: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
+        const {
+            className,
+            theme = ButtonTheme.OUTLINE,
+            children,
+            square,
+            size = ButtonSize.M,
+            disabled,
+            fullWidth,
+            ...otherProps
+        } = props;
 
-    const mods: Mods = {
-        [cls.square]: square,
-        [cls.disabled]: disabled,
-        [cls.fullWidth]: fullWidth,
-    };
-    return (
-        <button
-            type="button"
-            className={classNames(cls.Button, mods, [
-                className,
-                cls[theme],
-                cls[size],
-            ])}
-            disabled={disabled}
-            {...otherProps}
-        >
-            {children}
-        </button>
-    );
-});
+        const mods: Mods = {
+            [cls.square]: square,
+            [cls.disabled]: disabled,
+            [cls.fullWidth]: fullWidth,
+        };
+        return (
+            <button
+                ref={ref}
+                type="button"
+                className={classNames(cls.Button, mods, [
+                    className,
+                    cls[theme],
+                    cls[size],
+                ])}
+                disabled={disabled}
+                {...otherProps}
+            >
+                {children}
+            </button>
+        );
+    },
+);

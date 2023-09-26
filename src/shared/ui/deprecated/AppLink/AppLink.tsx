@@ -1,5 +1,5 @@
 import { Link, LinkProps } from 'react-router-dom';
-import { memo, ReactNode } from 'react';
+import { forwardRef, ReactNode } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './AppLink.module.scss';
 
@@ -18,7 +18,7 @@ interface AppLinkProps extends LinkProps {
  * Устарел, используем новые компоненты из папки redesigned
  * @deprecated
  */
-export const AppLink = memo((props: AppLinkProps) => {
+export const AppLink = forwardRef((props: AppLinkProps, ref: any) => {
     const {
         to,
         className,
@@ -29,6 +29,7 @@ export const AppLink = memo((props: AppLinkProps) => {
 
     return (
         <Link
+            ref={ref}
             to={to}
             className={classNames(cls.AppLink, {}, [className, cls[theme]])}
             {...otherProps}

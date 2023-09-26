@@ -61,6 +61,7 @@ export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
                 >
                     {viewTypes.map((viewType) => (
                         <Icon
+                            key={viewType.view}
                             className={classNames('', {
                                 [cls.notSelected]: viewType.view !== view,
                             })}
