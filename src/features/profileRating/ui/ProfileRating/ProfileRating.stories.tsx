@@ -9,6 +9,7 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    loki: { skip: true },
     decorators: [],
 } as ComponentMeta<typeof ProfileRating>;
 
@@ -35,7 +36,7 @@ Normal.parameters = {
             method: 'GET',
             status: 200,
             response: [{ rate: 5 }],
-            delay: 2000,
+            // delay: 2000,
         },
     ],
 };

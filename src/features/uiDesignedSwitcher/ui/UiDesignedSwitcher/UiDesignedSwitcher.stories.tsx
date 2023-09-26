@@ -1,9 +1,10 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { UiDesignedSwitcher } from './UiDesignedSwitcher';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
 export default {
-    title: '___/UiDesignedSwitcher',
+    title: 'features/UiDesignedSwitcher',
     component: UiDesignedSwitcher,
     argTypes: {
         backgroundColor: { control: 'color' },
@@ -16,4 +17,4 @@ const Template: ComponentStory<typeof UiDesignedSwitcher> = (args) => (
 
 export const Normal = Template.bind({});
 Normal.args = {};
-Normal.decorators = [];
+Normal.decorators = [StoreDecorator({})];

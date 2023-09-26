@@ -1,9 +1,11 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ScrollToTopButton } from './ScrollToTopButton';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/shared/const/theme';
 
 export default {
-    title: '___/ScrollToTopButton',
+    title: 'features/ScrollToTopButton',
     component: ScrollToTopButton,
     argTypes: {
         backgroundColor: { control: 'color' },
@@ -16,4 +18,4 @@ const Template: ComponentStory<typeof ScrollToTopButton> = (args) => (
 
 export const Normal = Template.bind({});
 Normal.args = {};
-Normal.decorators = [];
+Normal.decorators = [ThemeDecorator(Theme.DARK)];
