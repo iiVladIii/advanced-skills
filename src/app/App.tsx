@@ -9,6 +9,7 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { PageLoader } from '@/widgets/PageLoader';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { MainLayout } from '@/shared/layouts/MainLayout';
+import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
 
 function App() {
     // const { theme } = useTheme();
@@ -22,10 +23,25 @@ function App() {
         }
     }, [dispatch, inited]);
 
-    console.log(inited);
-
     if (!inited) {
-        return <PageLoader />;
+        return (
+            <ToggleFeatures
+                feature="isAppRedesigned"
+                on={
+                    <div
+                        id="app"
+                        className={classNames('app_redesigned', {}, [])}
+                    >
+                        <AppLoaderLayout />
+                    </div>
+                }
+                off={
+                    <div id="app" className={classNames('app', {}, [])}>
+                        <PageLoader />
+                    </div>
+                }
+            />
+        );
     }
 
     return (
